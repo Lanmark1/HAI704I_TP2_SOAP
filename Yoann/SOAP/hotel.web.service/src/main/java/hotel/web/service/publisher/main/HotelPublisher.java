@@ -13,14 +13,14 @@ import hotel.web.service.services.HotelServiceConsultImpl;
 public class HotelPublisher {
 
 	public static void main(String[] args) {
-		ArrayList<Hotel> hotels = getHotels();
-		System.out.println(hotels);
+//		ArrayList<Hotel> hotels = getHotels();
+//		System.out.println(hotels);
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl());
 		System.err.println("Server is ready");
 		
 	
 	}
-	
+	/*
 	public static ArrayList<Hotel> getHotels(){
 		ArrayList<Hotel> hotels = new ArrayList<Hotel>();
 		
@@ -42,5 +42,5 @@ public class HotelPublisher {
 		));
 		return hotels;
 	}
-
+*/
 }

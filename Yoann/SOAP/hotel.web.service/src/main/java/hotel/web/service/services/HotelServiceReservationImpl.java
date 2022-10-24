@@ -15,6 +15,7 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	
 	ArrayList<Offre> lstOffre;
 	
+	
 	public HotelServiceReservationImpl() {};
 	
 	
