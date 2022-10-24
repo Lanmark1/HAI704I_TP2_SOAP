@@ -1,4 +1,4 @@
-package hotel.web.service.services;
+package hotel.web.service.model;
 
 import java.time.LocalDate;
 
@@ -31,6 +31,8 @@ public class Offre {
 		this.nbrLits = nbrLits;
 	}
 
+	
+	
 	public LocalDate getDateDispo() {
 		return dateDispo;
 	}
