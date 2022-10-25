@@ -1,4 +1,4 @@
-package agence.web.service.client.main;
+package agence.web.service.main;
 
 public class Main {
 

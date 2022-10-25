@@ -96,6 +96,15 @@ public class Hotel {
 		this.etoiles = etoiles;
 	}
 
+	public Offre getOffreById(int identifiant) {
+		for (Offre o : listeChambres) {
+			if(o.getIdentifiant() == identifiant) {
+				return o;
+			}
+		}
+		return null;
+	}
+	
 	public ArrayList<Offre> getListeChambres() {
 		return listeChambres;
 	}

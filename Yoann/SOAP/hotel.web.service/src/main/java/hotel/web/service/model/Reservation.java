@@ -14,7 +14,7 @@ public class Reservation {
 	private LocalDate dateFin;
 	private static int cptIdentifiant = 0; 
 	
-	public Reservation(int identifiantOffre, InfosPersonnes infosClient, LocalDate dateDebut, LocalDate dateFin){
+	public Reservation(Hotel hotel, int identifiantOffre, InfosPersonnes infosClient, LocalDate dateDebut, LocalDate dateFin){
 		
 		this.identifiantReservation = cptIdentifiant;
 		this.identifiantOffre = identifiantOffre;
@@ -22,6 +22,8 @@ public class Reservation {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		cptIdentifiant++;
+		hotel.getOffreById(identifiantOffre).setDateDispo(dateFin);
+		
 	}
 	
 	public int getIdentifiantReservation() {
