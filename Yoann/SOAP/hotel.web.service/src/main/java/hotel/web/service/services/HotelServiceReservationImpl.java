@@ -16,7 +16,7 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	
 	Reservation res; 
 	
-	public HotelServiceReservationImpl() {};
+	public HotelServiceReservationImpl() {}
 	
 	@WebMethod
 	public Boolean reservationValide(int identifiantAgence, String login, String password, Hotel hotel, int identifiantOffre, InfosPersonnes infosPersonne, LocalDate dateDebut, LocalDate dateFin) {
