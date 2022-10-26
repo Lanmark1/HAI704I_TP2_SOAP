@@ -13,7 +13,7 @@ import agence.web.service.model.InfosPersonnes;
 public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
-	public void Reservation(InfosPersonnes infos);
+	public void Reservation(InfosPersonnes infos, LocalDate dateDebut, LocalDate dateFin);
 	
 	
 	@WebMethod

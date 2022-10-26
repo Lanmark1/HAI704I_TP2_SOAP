@@ -12,7 +12,7 @@ import agence.web.service.model.InfosPersonnes;
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 
 	@Override
-	public void Reservation(InfosPersonnes infos) {
+	public void Reservation(InfosPersonnes infos, LocalDate dateDebut, LocalDate dateFin) {
 		// TODO Auto-generated method stub
 		
 	}
