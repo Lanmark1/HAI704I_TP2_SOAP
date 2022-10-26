@@ -8,6 +8,9 @@ public class Offre {
 	private LocalDate dateDispo;
 	private int prix;
 	
+	public Offre() {
+	}
+	
 	public Offre(int identifiant, int nbrLits, LocalDate dateDispo, int prix) {
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);

@@ -1,9 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>TP2.SOAP</groupId>
-  <artifactId>hotel.web.service</artifactId>
+  <groupId>agence.web.service</groupId>
+  <artifactId>agence.web.services</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>HotelWebService</name>
+  <name>agence.web.service</name>
+  <description>TP2</description>
+  
    <dependencies>
 
 <dependency>
@@ -30,4 +32,5 @@
 
 
 </dependencies>
+  
 </project>
