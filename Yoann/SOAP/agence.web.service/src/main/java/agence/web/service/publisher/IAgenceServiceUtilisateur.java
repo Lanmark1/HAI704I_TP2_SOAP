@@ -1,10 +1,13 @@
-package agence.web.service.services;
+package agence.web.service.publisher;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+
+import agence.web.service.client.Offre;
+import agence.web.service.model.InfosPersonnes;
 
 @WebService
 public interface IAgenceServiceUtilisateur {

@@ -1,8 +1,12 @@
-package agence.web.service.services;
+package agence.web.service.publisher;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import javax.jws.WebService;
+
+import agence.web.service.client.Offre;
+import agence.web.service.model.InfosPersonnes;
 
 @WebService(endpointInterface = "agence.web.services.services.IAgenceServiceUtilisateur")
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
