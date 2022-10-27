@@ -1,7 +1,5 @@
 
-package agence.web.service.client;
-
-import java.time.LocalDate;
+package agence.web.service;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -12,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the agence.web.service.client package. 
+ * generated in the agence.web.service package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -26,24 +24,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetHotelsServiceResponse_QNAME = new QName("http://services.service.web.hotel/", "getHotelsServiceResponse");
-    private final static QName _GetHotelsService_QNAME = new QName("http://services.service.web.hotel/", "getHotelsService");
     private final static QName _GetListeOffresResponse_QNAME = new QName("http://services.service.web.hotel/", "getListeOffresResponse");
     private final static QName _GetListeOffres_QNAME = new QName("http://services.service.web.hotel/", "getListeOffres");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: agence.web.service.client
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: agence.web.service
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link GetHotelsServiceResponse }
-     * 
-     */
-    public GetHotelsServiceResponse createGetHotelsServiceResponse() {
-        return new GetHotelsServiceResponse();
     }
 
     /**
@@ -55,14 +43,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHotelsService }
-     * 
-     */
-    public GetHotelsService createGetHotelsService() {
-        return new GetHotelsService();
-    }
-
-    /**
      * Create an instance of {@link GetListeOffresResponse }
      * 
      */
@@ -71,42 +51,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Hotel }
-     * 
-     */
-    public Hotel createHotel() {
-        return new Hotel();
-    }
-
-    /**
      * Create an instance of {@link LocalDate }
      * 
      */
-  
+    public LocalDate createLocalDate() {
+        return new LocalDate();
+    }
+
     /**
      * Create an instance of {@link Offre }
      * 
      */
     public Offre createOffre() {
         return new Offre();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsServiceResponse")
-    public JAXBElement<GetHotelsServiceResponse> createGetHotelsServiceResponse(GetHotelsServiceResponse value) {
-        return new JAXBElement<GetHotelsServiceResponse>(_GetHotelsServiceResponse_QNAME, GetHotelsServiceResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsService")
-    public JAXBElement<GetHotelsService> createGetHotelsService(GetHotelsService value) {
-        return new JAXBElement<GetHotelsService>(_GetHotelsService_QNAME, GetHotelsService.class, null, value);
     }
 
     /**

@@ -13,23 +13,31 @@ import hotel.web.service.model.Offre;
 public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	
 	private ArrayList<Offre> lstOffre;
+	private ArrayList<Hotel> lstHotels;
 	
-	public HotelServiceConsultImpl() {}
+	public HotelServiceConsultImpl(ArrayList<Hotel> hotels) {
+		this.lstHotels = hotels; 
+		lstOffre = new ArrayList<Offre>();	
+	}
+	
 	
 	@WebMethod
 	public ArrayList<Offre> getListeOffres(int identifiant, String password, LocalDate DateDebut, LocalDate DateFin, int nbrPersonnes) {	
-		
-		ArrayList<Offre> lstOffrebis = new ArrayList<Offre>();
-		
-		for (Offre e : lstOffre) {
-			if(e.getDateDispo().isBefore(DateDebut)) {
-				if(e.getNbrLits() > nbrPersonnes) {
-					lstOffrebis.add(e);
+		for (Hotel h : lstHotels) {
+			for (Offre e : lstOffre) {
+				if(e.getDateDispo().isBefore(DateDebut)) {
+					if(e.getNbrLits() > nbrPersonnes) {
+						lstOffre.add(e);
+					}
 				}
 			}
-		}
-		
-		return lstOffrebis;
+		}	
+		return lstOffre;
+	}
+
+	@WebMethod
+	public ArrayList<Hotel> getHotelsService() {
+		return lstHotels;
 	}
 
 }

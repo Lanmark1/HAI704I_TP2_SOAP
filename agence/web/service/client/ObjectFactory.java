@@ -1,8 +1,6 @@
 
 package agence.web.service.client;
 
-import java.time.LocalDate;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -82,7 +80,10 @@ public class ObjectFactory {
      * Create an instance of {@link LocalDate }
      * 
      */
-  
+    public LocalDate createLocalDate() {
+        return new LocalDate();
+    }
+
     /**
      * Create an instance of {@link Offre }
      * 

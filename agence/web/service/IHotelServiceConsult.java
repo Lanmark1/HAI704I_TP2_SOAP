@@ -1,9 +1,7 @@
 
-package agence.web.service.client;
+package agence.web.service;
 
-import java.time.LocalDate;
 import java.util.List;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -35,12 +33,12 @@ public interface IHotelServiceConsult {
      * @param arg1
      * @param arg0
      * @return
-     *     returns java.util.List<agence.web.service.client.Offre>
+     *     returns java.util.List<agence.web.service.Offre>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getListeOffres", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetListeOffres")
-    @ResponseWrapper(localName = "getListeOffresResponse", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetListeOffresResponse")
+    @RequestWrapper(localName = "getListeOffres", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.GetListeOffres")
+    @ResponseWrapper(localName = "getListeOffresResponse", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.GetListeOffresResponse")
     @Action(input = "http://services.service.web.hotel/IHotelServiceConsult/getListeOffresRequest", output = "http://services.service.web.hotel/IHotelServiceConsult/getListeOffresResponse")
     public List<Offre> getListeOffres(
         @WebParam(name = "arg0", targetNamespace = "")
@@ -53,17 +51,5 @@ public interface IHotelServiceConsult {
         LocalDate arg3,
         @WebParam(name = "arg4", targetNamespace = "")
         int arg4);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<agence.web.service.client.Hotel>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getHotelsService", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetHotelsService")
-    @ResponseWrapper(localName = "getHotelsServiceResponse", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetHotelsServiceResponse")
-    @Action(input = "http://services.service.web.hotel/IHotelServiceConsult/getHotelsServiceRequest", output = "http://services.service.web.hotel/IHotelServiceConsult/getHotelsServiceResponse")
-    public List<Hotel> getHotelsService();
 
 }
