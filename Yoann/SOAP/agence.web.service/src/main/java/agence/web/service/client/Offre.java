@@ -1,11 +1,11 @@
 
 package agence.web.service.client;
 
-import java.time.LocalDate;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -14,18 +14,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="offre">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="dateDispo" type="{http://services.service.web.hotel/}localDate" minOccurs="0"/>
- *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="nbrLits" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="offre"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="dateDispo" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="nbrLits" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -39,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Offre {
 
-    protected LocalDate dateDispo;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateDispo;
     protected int identifiant;
     protected int nbrLits;
     protected int prix;
@@ -49,10 +50,10 @@ public class Offre {
      * 
      * @return
      *     possible object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public LocalDate getDateDispo() {
+    public XMLGregorianCalendar getDateDispo() {
         return dateDispo;
     }
 
@@ -61,10 +62,10 @@ public class Offre {
      * 
      * @param value
      *     allowed object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setDateDispo(LocalDate value) {
+    public void setDateDispo(XMLGregorianCalendar value) {
         this.dateDispo = value;
     }
 

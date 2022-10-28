@@ -1,7 +1,6 @@
 package hotel.web.service.model;
 
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Hotel {

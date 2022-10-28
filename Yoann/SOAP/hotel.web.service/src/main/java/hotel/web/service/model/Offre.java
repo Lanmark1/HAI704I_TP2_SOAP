@@ -1,18 +1,18 @@
 package hotel.web.service.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Offre {
 	private int identifiant;
 	private int nbrLits;
-	private LocalDate dateDispo;
+	private Date dateDispo;
 	private int prix;
 
 	
 	
 	public Offre() {}
 	
-	public Offre(int identifiant, int nbrLits, LocalDate dateDispo, int prix) {
+	public Offre(int identifiant, int nbrLits, Date dateDispo, int prix) {
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);
@@ -37,11 +37,11 @@ public class Offre {
 
 	
 	
-	public LocalDate getDateDispo() {
+	public Date getDateDispo() {
 		return dateDispo;
 	}
 
-	public void setDateDispo(LocalDate dateDispo) {
+	public void setDateDispo(Date dateDispo) {
 		this.dateDispo = dateDispo;
 	}
 

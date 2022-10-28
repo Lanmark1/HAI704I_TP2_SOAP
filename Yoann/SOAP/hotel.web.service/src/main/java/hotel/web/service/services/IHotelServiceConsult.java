@@ -1,7 +1,7 @@
 package hotel.web.service.services;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -16,6 +16,6 @@ public interface IHotelServiceConsult {
 	public ArrayList<Hotel> getHotelsService();
 	
 	@WebMethod
-	public ArrayList<Offre> getListeOffres(int identifiant, String password, LocalDate DateDebut, LocalDate DateFin, int nbrPersonnes);
+	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes);
 	
 }

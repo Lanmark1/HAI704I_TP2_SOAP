@@ -1,8 +1,6 @@
 
 package agence.web.service.client;
 
-import java.time.LocalDate;
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -26,16 +24,24 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetHotelsServiceResponse_QNAME = new QName("http://services.service.web.hotel/", "getHotelsServiceResponse");
     private final static QName _GetHotelsService_QNAME = new QName("http://services.service.web.hotel/", "getHotelsService");
-    private final static QName _GetListeOffresResponse_QNAME = new QName("http://services.service.web.hotel/", "getListeOffresResponse");
+    private final static QName _GetHotelsServiceResponse_QNAME = new QName("http://services.service.web.hotel/", "getHotelsServiceResponse");
     private final static QName _GetListeOffres_QNAME = new QName("http://services.service.web.hotel/", "getListeOffres");
+    private final static QName _GetListeOffresResponse_QNAME = new QName("http://services.service.web.hotel/", "getListeOffresResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: agence.web.service.client
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetHotelsService }
+     * 
+     */
+    public GetHotelsService createGetHotelsService() {
+        return new GetHotelsService();
     }
 
     /**
@@ -55,14 +61,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHotelsService }
-     * 
-     */
-    public GetHotelsService createGetHotelsService() {
-        return new GetHotelsService();
-    }
-
-    /**
      * Create an instance of {@link GetListeOffresResponse }
      * 
      */
@@ -79,11 +77,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LocalDate }
-     * 
-     */
-  
-    /**
      * Create an instance of {@link Offre }
      * 
      */
@@ -92,17 +85,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}
      * 
-     */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsServiceResponse")
-    public JAXBElement<GetHotelsServiceResponse> createGetHotelsServiceResponse(GetHotelsServiceResponse value) {
-        return new JAXBElement<GetHotelsServiceResponse>(_GetHotelsServiceResponse_QNAME, GetHotelsServiceResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}}
-     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}
      */
     @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsService")
     public JAXBElement<GetHotelsService> createGetHotelsService(GetHotelsService value) {
@@ -110,21 +98,42 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffresResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getListeOffresResponse")
-    public JAXBElement<GetListeOffresResponse> createGetListeOffresResponse(GetListeOffresResponse value) {
-        return new JAXBElement<GetListeOffresResponse>(_GetListeOffresResponse_QNAME, GetListeOffresResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsServiceResponse")
+    public JAXBElement<GetHotelsServiceResponse> createGetHotelsServiceResponse(GetHotelsServiceResponse value) {
+        return new JAXBElement<GetHotelsServiceResponse>(_GetHotelsServiceResponse_QNAME, GetHotelsServiceResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffres }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffres }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetListeOffres }{@code >}
      */
     @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getListeOffres")
     public JAXBElement<GetListeOffres> createGetListeOffres(GetListeOffres value) {
         return new JAXBElement<GetListeOffres>(_GetListeOffres_QNAME, GetListeOffres.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffresResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetListeOffresResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getListeOffresResponse")
+    public JAXBElement<GetListeOffresResponse> createGetListeOffresResponse(GetListeOffresResponse value) {
+        return new JAXBElement<GetListeOffresResponse>(_GetListeOffresResponse_QNAME, GetListeOffresResponse.class, null, value);
     }
 
 }

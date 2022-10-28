@@ -1,11 +1,11 @@
 
 package agence.web.service.client;
 
-import java.time.LocalDate;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -14,19 +14,19 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="getListeOffres">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="arg2" type="{http://services.service.web.hotel/}localDate" minOccurs="0"/>
- *         &lt;element name="arg3" type="{http://services.service.web.hotel/}localDate" minOccurs="0"/>
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="getListeOffres"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -43,8 +43,10 @@ public class GetListeOffres {
 
     protected int arg0;
     protected String arg1;
-    protected LocalDate arg2;
-    protected LocalDate arg3;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar arg2;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar arg3;
     protected int arg4;
 
     /**
@@ -92,10 +94,10 @@ public class GetListeOffres {
      * 
      * @return
      *     possible object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public LocalDate getArg2() {
+    public XMLGregorianCalendar getArg2() {
         return arg2;
     }
 
@@ -104,10 +106,10 @@ public class GetListeOffres {
      * 
      * @param value
      *     allowed object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setArg2(LocalDate value) {
+    public void setArg2(XMLGregorianCalendar value) {
         this.arg2 = value;
     }
 
@@ -116,10 +118,10 @@ public class GetListeOffres {
      * 
      * @return
      *     possible object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public LocalDate getArg3() {
+    public XMLGregorianCalendar getArg3() {
         return arg3;
     }
 
@@ -128,10 +130,10 @@ public class GetListeOffres {
      * 
      * @param value
      *     allowed object is
-     *     {@link LocalDate }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setArg3(LocalDate value) {
+    public void setArg3(XMLGregorianCalendar value) {
         this.arg3 = value;
     }
 

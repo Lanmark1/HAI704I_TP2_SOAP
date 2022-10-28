@@ -1,7 +1,7 @@
 package hotel.web.service.services;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -22,10 +22,11 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	
 	
 	@WebMethod
-	public ArrayList<Offre> getListeOffres(int identifiant, String password, LocalDate DateDebut, LocalDate DateFin, int nbrPersonnes) {	
+	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes) {	
+		System.out.println(lstHotels);
 		for (Hotel h : lstHotels) {
-			for (Offre e : lstOffre) {
-				if(e.getDateDispo().isBefore(DateDebut)) {
+			for (Offre e : h.getListeChambres()) {
+				if(e.getDateDispo().before(DateDebut)) {
 					if(e.getNbrLits() > nbrPersonnes) {
 						lstOffre.add(e);
 					}

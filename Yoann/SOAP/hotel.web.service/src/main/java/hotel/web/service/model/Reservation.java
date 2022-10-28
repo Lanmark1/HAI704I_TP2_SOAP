@@ -1,8 +1,6 @@
 package hotel.web.service.model;
 
-import java.time.LocalDate;
-
-import hotel.web.service.exception.ExceptionReservation;
+import java.util.Date;
 
 public class Reservation {
 
@@ -10,11 +8,11 @@ public class Reservation {
 	private int identifiantReservation;
 	private int identifiantOffre;
 	private InfosPersonnes infosClient;
-	private LocalDate dateDebut;
-	private LocalDate dateFin;
+	private Date dateDebut;
+	private Date dateFin;
 	private static int cptIdentifiant = 0; 
 	
-	public Reservation(Hotel hotel, int identifiantOffre, InfosPersonnes infosClient, LocalDate dateDebut, LocalDate dateFin){
+	public Reservation(Hotel hotel, int identifiantOffre, InfosPersonnes infosClient, Date dateDebut, Date dateFin){
 		
 		this.identifiantReservation = cptIdentifiant;
 		this.identifiantOffre = identifiantOffre;
@@ -50,19 +48,19 @@ public class Reservation {
 		this.infosClient = infosClient;
 	}
 
-	public LocalDate getDateDebut() {
+	public Date getDateDebut() {
 		return dateDebut;
 	}
 
-	public void setDateDebut(LocalDate dateDebut) {
+	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
-	public LocalDate getDateFin() {
+	public Date getDateFin() {
 		return dateFin;
 	}
 
-	public void setDateFin(LocalDate dateFin) {
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 
