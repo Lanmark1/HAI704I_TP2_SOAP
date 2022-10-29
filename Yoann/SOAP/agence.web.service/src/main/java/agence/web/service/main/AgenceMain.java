@@ -29,11 +29,8 @@ public class AgenceMain {
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(df.parse("11-10-2022"));
 		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-<<<<<<< HEAD
 		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3).get(0).getPrix());
-=======
 		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
->>>>>>> 64f88eed9acb18d7d25752b0aab78bfaf269b513
 		
 	}
 
