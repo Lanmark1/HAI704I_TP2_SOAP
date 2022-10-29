@@ -13,10 +13,12 @@ public class Hotel {
 	private int longitude;
 	private int latitude;
 	private int etoiles;
+	private int identifiant;
 	private ArrayList<Offre> listeChambres;
 		
 	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres) {
 		super();
+		identifiant++;
 		this.pays = pays;
 		this.ville = ville;
 		this.rue = rue;
@@ -26,6 +28,9 @@ public class Hotel {
 		this.latitude = latitude;
 		this.etoiles = etoiles;
 		this.setListeChambres(listeChambres);
+		for (Offre e : listeChambres) {
+			e.setHotel(this);
+		}
 		
 	}
 
@@ -56,7 +61,7 @@ public class Hotel {
 	public int getNumero() {
 		return numero;
 	}
-
+	
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}

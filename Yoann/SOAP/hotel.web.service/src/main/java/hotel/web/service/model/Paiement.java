@@ -1,24 +1,30 @@
 package hotel.web.service.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+@XmlRootElement
 public class Paiement {
 	
-	private LocalDate dateExpiration;
+	private String dateExpiration;
 	private String numeroCarte;
 	private int cvv;
 	
-	public Paiement(String numeroCarte, LocalDate dateExpiration, int cvv) {
+	public Paiement() {};
+	
+	public Paiement(String numeroCarte, String dateExpiration, int cvv) {
 		this.setNumeroCarte(numeroCarte);
 		this.setDateExpiration(dateExpiration);
 		this.setCvv(cvv);
 	}
 
-	public LocalDate getDateExpiration() {
+	public String getDateExpiration() {
 		return dateExpiration;
 	}
 
-	public void setDateExpiration(LocalDate dateExpiration) {
+	public void setDateExpiration(String dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}
 

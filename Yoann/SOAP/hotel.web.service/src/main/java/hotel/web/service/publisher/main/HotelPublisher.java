@@ -10,6 +10,7 @@ import javax.xml.ws.Endpoint;
 import hotel.web.service.model.Hotel;
 import hotel.web.service.model.Offre;
 import hotel.web.service.services.HotelServiceConsultImpl;
+import hotel.web.service.services.HotelServiceReservationImpl;
 
 public class HotelPublisher {
 
@@ -17,11 +18,16 @@ public class HotelPublisher {
 		ArrayList<Hotel> hotels = getHotels();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		
-		System.out.println(hotels.get(0).getOffreById(1000).getDateDispo().before(df.parse("10-10-2022")));
-		HotelServiceConsultImpl hsci = new HotelServiceConsultImpl(hotels);
-		System.out.println(hsci.getListeOffres(15051, "Nice", df.parse("11-10-2022") ,df.parse("11-10-2022"), 3));
+//		HotelServiceConsultImpl hsci = new HotelServiceConsultImpl(hotels);
+//		System.out.println(hsci.getListeOffres(15051, "Nice", df.parse("11-10-2022") ,df.parse("11-10-2022"), 3));
+//		System.out.println(hotels.get(0));
+//		System.out.println(hotels.get(0).getListeChambres().get(0).getHotel());
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));
+		Endpoint.publish("http://localhost:8080/hotelservicereservation", new HotelServiceReservationImpl(hotels));
+
+		
 		System.err.println("Server is ready");
+
 		
 		
 	
@@ -35,10 +41,10 @@ public class HotelPublisher {
 		
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		
-		Offre of1h1 = new Offre(1000, 3, df.parse("10-10-2022"), 100 );
+		Offre of1h1 = new Offre(3, df.parse("10-10-2022"), 100 );
 		offresH1.add(of1h1);
 		
-		Offre of1h2 = new Offre(1001, 4, df.parse("10-10-2022"), 110 );
+		Offre of1h2 = new Offre(4, df.parse("10-10-2022"), 110 );
 		offresH2.add(of1h2);
 		
 	

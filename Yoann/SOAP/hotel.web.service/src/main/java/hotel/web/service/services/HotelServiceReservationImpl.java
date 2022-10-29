@@ -1,10 +1,12 @@
 package hotel.web.service.services;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import hotel.web.service.exception.ExceptionGetReference;
 import hotel.web.service.model.Hotel;
 import hotel.web.service.model.InfosPersonnes;
 import hotel.web.service.model.Reservation;
@@ -13,20 +15,37 @@ import hotel.web.service.model.Reservation;
 public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	
 	Reservation res; 
+	private ArrayList<Hotel> lstHotels;
 	
-	public HotelServiceReservationImpl() {}
+	public HotelServiceReservationImpl(ArrayList<Hotel> hotels) {
+		this.lstHotels = hotels; 
+		res = null;
+	}
 	
 	@WebMethod
-	public Boolean reservationValide(int identifiantAgence, String login, String password, Hotel hotel, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin) {
+	public Boolean reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin) {
 
 		// Si condition vérifié : 
+
+		Hotel hotel = null;
+		
+		for (Hotel h : lstHotels) {
+			if(h.getOffreById(identifiantOffre) != null) {
+				hotel = h;
+				continue;
+			}
+		}
+		
 		res = new Reservation(hotel, identifiantOffre, infosPersonne, dateDebut, dateFin);
 		return true;
 	}
 	
 	@WebMethod
-	public int getReference() {
-		return this.res.getIdentifiantReservation();
+	public int getReference() throws ExceptionGetReference {
+		if(res == null) {
+			throw new ExceptionGetReference("Aucune réservation n'a encore eu lieu");
+		}
+		return res.getIdentifiantReservation();
 	}
 
 

@@ -7,12 +7,13 @@ public class Offre {
 	private int nbrLits;
 	private Date dateDispo;
 	private int prix;
-
-	
+	private Hotel hotel;
 	
 	public Offre() {}
 	
-	public Offre(int identifiant, int nbrLits, Date dateDispo, int prix) {
+	public Offre(int nbrLits, Date dateDispo, int prix) {
+		identifiant++;
+		this.hotel = null;
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);
@@ -21,6 +22,14 @@ public class Offre {
 
 	public int getIdentifiant() {
 		return identifiant;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+	
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
 	public void setIdentifiant(int identifiant) {

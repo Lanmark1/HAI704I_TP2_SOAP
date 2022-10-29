@@ -23,12 +23,13 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	
 	@WebMethod
 	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes) {	
-		System.out.println(lstHotels);
 		for (Hotel h : lstHotels) {
 			for (Offre e : h.getListeChambres()) {
 				if(e.getDateDispo().before(DateDebut)) {
 					if(e.getNbrLits() > nbrPersonnes) {
+						if(!lstOffre.contains(e)) {
 						lstOffre.add(e);
+					}
 					}
 				}
 			}
