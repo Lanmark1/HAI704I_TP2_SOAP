@@ -29,7 +29,7 @@ public class AgenceMain {
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(df.parse("11-10-2022"));
 		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3).get(0).getDateDispo());
+		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
 		
 	}
 

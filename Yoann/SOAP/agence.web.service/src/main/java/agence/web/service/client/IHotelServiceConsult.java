@@ -1,7 +1,9 @@
 
 package agence.web.service.client;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -41,7 +43,7 @@ public interface IHotelServiceConsult {
     @RequestWrapper(localName = "getListeOffres", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetListeOffres")
     @ResponseWrapper(localName = "getListeOffresResponse", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.service.client.GetListeOffresResponse")
     @Action(input = "http://services.service.web.hotel/IHotelServiceConsult/getListeOffresRequest", output = "http://services.service.web.hotel/IHotelServiceConsult/getListeOffresResponse")
-    public List<Offre> getListeOffres(
+    public ArrayList<Offre> getListeOffres(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
