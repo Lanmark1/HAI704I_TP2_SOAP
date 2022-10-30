@@ -12,13 +12,13 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import agence.web.service.client.ExceptionGetReference_Exception;
-import agence.web.service.client.HotelServiceConsultImplService;
-import agence.web.service.client.HotelServiceReservationImplService;
-import agence.web.service.client.IHotelServiceConsult;
-import agence.web.service.client.IHotelServiceReservation;
-import agence.web.service.client.InfosPersonnes;
-import agence.web.service.client.Offre;
+import agence.web.consultationWS.HotelServiceConsultImplService;
+import agence.web.consultationWS.IHotelServiceConsult;
+import agence.web.consultationWS.Offre;
+import agence.web.reservationWS.ExceptionGetReference_Exception;
+import agence.web.reservationWS.HotelServiceReservationImplService;
+import agence.web.reservationWS.IHotelServiceReservation;
+import agence.web.reservationWS.InfosPersonnes;
 
 @WebService(endpointInterface = "agence.web.services.services.IAgenceServiceUtilisateur")
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{

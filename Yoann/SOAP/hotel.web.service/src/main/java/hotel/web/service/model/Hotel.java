@@ -13,12 +13,11 @@ public class Hotel {
 	private int longitude;
 	private int latitude;
 	private int etoiles;
-	private int identifiant;
 	private ArrayList<Offre> listeChambres;
+	private ArrayList<Agence> agencePartenaires;
 		
-	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres) {
+	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres, ArrayList<Agence> agencesPartenaire) {
 		super();
-		identifiant++;
 		this.pays = pays;
 		this.ville = ville;
 		this.rue = rue;
@@ -28,10 +27,13 @@ public class Hotel {
 		this.latitude = latitude;
 		this.etoiles = etoiles;
 		this.setListeChambres(listeChambres);
+		this.setAgencePartenaires(agencesPartenaire);
 		for (Offre e : listeChambres) {
 			e.setHotel(this);
 		}
-		
+		for (Agence a : agencesPartenaire) {
+			a.addHotels(this);
+		}
 	}
 
 	public String getPays() {
@@ -109,12 +111,29 @@ public class Hotel {
 		return null;
 	}
 	
+	public Agence getAgenceById(int identifiant) {
+		for (Agence a : agencePartenaires) {
+			if(a.getIdentifiant() == identifiant) {
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	public ArrayList<Offre> getListeChambres() {
 		return listeChambres;
 	}
 
 	public void setListeChambres(ArrayList<Offre> listeChambres) {
 		this.listeChambres = listeChambres;
+	}
+
+	public ArrayList<Agence> getAgencePartenaires() {
+		return agencePartenaires;
+	}
+
+	public void setAgencePartenaires(ArrayList<Agence> agencePartenaires) {
+		this.agencePartenaires = agencePartenaires;
 	}
 
 }

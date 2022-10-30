@@ -7,21 +7,28 @@ public class Reservation {
 	
 	private int identifiantReservation;
 	private int identifiantOffre;
+	private Agence a;
+	private float prix;
 	private InfosPersonnes infosClient;
 	private Date dateDebut;
 	private Date dateFin;
 	private static int cptIdentifiant = 0; 
 	
-	public Reservation(Hotel hotel, int identifiantOffre, InfosPersonnes infosClient, Date dateDebut, Date dateFin){
+	public Reservation(Hotel hotel, int identifiantAgence, int identifiantOffre, InfosPersonnes infosClient,  Date dateDebut, Date dateFin){
 		
 		this.identifiantReservation = cptIdentifiant;
 		this.identifiantOffre = identifiantOffre;
 		this.infosClient = infosClient;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+		if(hotel.getAgenceById(identifiantAgence) == null) {
+			this.prix = hotel.getOffreById(identifiantOffre).getPrix();
+		}
+		else {
+			this.prix = (float) (hotel.getOffreById(identifiantOffre).getPrix()*0.10);
+		}
 		cptIdentifiant++;
 		hotel.getOffreById(identifiantOffre).setDateDispo(dateFin);
-		
 	}
 	
 	public int getIdentifiantReservation() {

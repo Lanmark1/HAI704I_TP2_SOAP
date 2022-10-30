@@ -11,7 +11,7 @@ public class Main {
 	
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		System.out.println(df.parse("10-10-2022").before( df.parse("11-10-2022")));
-//		Date d1 = new Date(, 0, 0);
+		
 	}
 
 }

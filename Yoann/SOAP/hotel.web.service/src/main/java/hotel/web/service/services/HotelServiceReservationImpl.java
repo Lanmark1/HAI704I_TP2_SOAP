@@ -25,9 +25,9 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	@WebMethod
 	public Boolean reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin) {
 
-		// Si condition vérifié : 
-
 		Hotel hotel = null;
+		
+		// Je cherche l'hotel correspondant à l'offre
 		
 		for (Hotel h : lstHotels) {
 			if(h.getOffreById(identifiantOffre) != null) {
@@ -35,8 +35,12 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 				continue;
 			}
 		}
+		
+		// Si une réservation n'est pas existante alors je réserve ( on ne teste pas le cas où la date n'est pas disponible
+		// car on a fourni les chambres répondant au dispo de l'utilisateur
+		
 		if(res == null) {
-			res = new Reservation(hotel, identifiantOffre, infosPersonne, dateDebut, dateFin);
+			res = new Reservation(hotel, identifiantAgence, identifiantOffre, infosPersonne, dateDebut, dateFin);
 			return true;
 		}
 		
@@ -45,9 +49,15 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	
 	@WebMethod
 	public int getReference() throws ExceptionGetReference {
+		
+		// Si aucune réservation alors on renvoie une exception
+		
 		if(res == null) {
 			throw new ExceptionGetReference("Aucune réservation n'a encore eu lieu");
 		}
+		
+		// Sinon on renvoie l'identifiant de la réservation
+		
 		return res.getIdentifiantReservation();
 	}
 

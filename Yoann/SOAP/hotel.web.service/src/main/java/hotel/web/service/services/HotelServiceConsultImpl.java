@@ -23,6 +23,15 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	
 	@WebMethod
 	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes) {	
+		
+		// On parcourt la liste des hotels
+		
+		// Pour chaque offre on vérifie qu'elle est dispo
+		
+		// Pour chaque offre on vérifie que le nombre de lits est supérieur au nombre de personnes
+		
+		// Si oui, on ajoute à notre liste d'offres si elle n'est pas déjà ajoutée.
+		
 		for (Hotel h : lstHotels) {
 			for (Offre e : h.getListeChambres()) {
 				if(e.getDateDispo().before(DateDebut)) {
@@ -37,6 +46,8 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 		return lstOffre;
 	}
 
+	
+	
 	@WebMethod
 	public ArrayList<Hotel> getHotelsService() {
 		return lstHotels;
