@@ -56,6 +56,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 
 	@Override
 	public ArrayList<Offre> ConsultationOffre(int prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
+		/*
 		URL url;
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(dateDebut);
@@ -76,5 +77,5 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 		}
 		return null;
 	}
-
+	*/
 }

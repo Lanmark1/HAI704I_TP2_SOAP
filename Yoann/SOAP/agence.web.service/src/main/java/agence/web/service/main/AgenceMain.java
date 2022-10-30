@@ -11,26 +11,31 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import agence.web.service.client.ExceptionGetReference_Exception;
 import agence.web.service.client.HotelServiceConsultImplService;
+import agence.web.service.client.HotelServiceReservationImplService;
 import agence.web.service.client.IHotelServiceConsult;
+import agence.web.service.client.IHotelServiceReservation;
 
 
 
 
 public class AgenceMain {
 
-	public static void main(String[] args) throws MalformedURLException, ParseException, DatatypeConfigurationException {
+	public static void main(String[] args) throws MalformedURLException, ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
 		
 		URL url = new URL("http://localhost:8080/hotelserviceconsult?wsdl");
-		HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
-		IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
+		HotelServiceReservationImplService consultImpl = new HotelServiceReservationImplService(url);
+		IHotelServiceReservation proxy = consultImpl.getHotelServiceReservationImplPort();
+		System.out.println(proxy.getReference());
 		
-		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		GregorianCalendar c = new GregorianCalendar();
-		c.setTime(df.parse("11-10-2022"));
-		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3).get(0).getPrix());
-		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
+//		
+//		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+//		GregorianCalendar c = new GregorianCalendar();
+//		c.setTime(df.parse("11-10-2022"));
+//		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+//		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3).get(0).getPrix());
+//		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
 		
 	}
 
