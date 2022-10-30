@@ -24,10 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetHotelsService_QNAME = new QName("http://services.service.web.hotel/", "getHotelsService");
-    private final static QName _GetHotelsServiceResponse_QNAME = new QName("http://services.service.web.hotel/", "getHotelsServiceResponse");
-    private final static QName _GetListeOffres_QNAME = new QName("http://services.service.web.hotel/", "getListeOffres");
-    private final static QName _GetListeOffresResponse_QNAME = new QName("http://services.service.web.hotel/", "getListeOffresResponse");
+    private final static QName _ExceptionGetReference_QNAME = new QName("http://services.service.web.hotel/", "ExceptionGetReference");
+    private final static QName _GetReference_QNAME = new QName("http://services.service.web.hotel/", "getReference");
+    private final static QName _GetReferenceResponse_QNAME = new QName("http://services.service.web.hotel/", "getReferenceResponse");
+    private final static QName _InfosPersonnes_QNAME = new QName("http://services.service.web.hotel/", "infosPersonnes");
+    private final static QName _Paiement_QNAME = new QName("http://services.service.web.hotel/", "paiement");
+    private final static QName _ReservationValide_QNAME = new QName("http://services.service.web.hotel/", "reservationValide");
+    private final static QName _ReservationValideResponse_QNAME = new QName("http://services.service.web.hotel/", "reservationValideResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: agence.web.service.client
@@ -37,103 +40,150 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetHotelsService }
+     * Create an instance of {@link ExceptionGetReference }
      * 
      */
-    public GetHotelsService createGetHotelsService() {
-        return new GetHotelsService();
+    public ExceptionGetReference createExceptionGetReference() {
+        return new ExceptionGetReference();
     }
 
     /**
-     * Create an instance of {@link GetHotelsServiceResponse }
+     * Create an instance of {@link GetReference }
      * 
      */
-    public GetHotelsServiceResponse createGetHotelsServiceResponse() {
-        return new GetHotelsServiceResponse();
+    public GetReference createGetReference() {
+        return new GetReference();
     }
 
     /**
-     * Create an instance of {@link GetListeOffres }
+     * Create an instance of {@link GetReferenceResponse }
      * 
      */
-    public GetListeOffres createGetListeOffres() {
-        return new GetListeOffres();
+    public GetReferenceResponse createGetReferenceResponse() {
+        return new GetReferenceResponse();
     }
 
     /**
-     * Create an instance of {@link GetListeOffresResponse }
+     * Create an instance of {@link InfosPersonnes }
      * 
      */
-    public GetListeOffresResponse createGetListeOffresResponse() {
-        return new GetListeOffresResponse();
+    public InfosPersonnes createInfosPersonnes() {
+        return new InfosPersonnes();
     }
 
     /**
-     * Create an instance of {@link Hotel }
+     * Create an instance of {@link Paiement }
      * 
      */
-    public Hotel createHotel() {
-        return new Hotel();
+    public Paiement createPaiement() {
+        return new Paiement();
     }
 
     /**
-     * Create an instance of {@link Offre }
+     * Create an instance of {@link ReservationValide }
      * 
      */
-    public Offre createOffre() {
-        return new Offre();
+    public ReservationValide createReservationValide() {
+        return new ReservationValide();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}
+     * Create an instance of {@link ReservationValideResponse }
+     * 
+     */
+    public ReservationValideResponse createReservationValideResponse() {
+        return new ReservationValideResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExceptionGetReference }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetHotelsService }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link ExceptionGetReference }{@code >}
      */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsService")
-    public JAXBElement<GetHotelsService> createGetHotelsService(GetHotelsService value) {
-        return new JAXBElement<GetHotelsService>(_GetHotelsService_QNAME, GetHotelsService.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "ExceptionGetReference")
+    public JAXBElement<ExceptionGetReference> createExceptionGetReference(ExceptionGetReference value) {
+        return new JAXBElement<ExceptionGetReference>(_ExceptionGetReference_QNAME, ExceptionGetReference.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReference }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetHotelsServiceResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetReference }{@code >}
      */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getHotelsServiceResponse")
-    public JAXBElement<GetHotelsServiceResponse> createGetHotelsServiceResponse(GetHotelsServiceResponse value) {
-        return new JAXBElement<GetHotelsServiceResponse>(_GetHotelsServiceResponse_QNAME, GetHotelsServiceResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getReference")
+    public JAXBElement<GetReference> createGetReference(GetReference value) {
+        return new JAXBElement<GetReference>(_GetReference_QNAME, GetReference.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffres }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetListeOffres }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetReferenceResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getListeOffres")
-    public JAXBElement<GetListeOffres> createGetListeOffres(GetListeOffres value) {
-        return new JAXBElement<GetListeOffres>(_GetListeOffres_QNAME, GetListeOffres.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getReferenceResponse")
+    public JAXBElement<GetReferenceResponse> createGetReferenceResponse(GetReferenceResponse value) {
+        return new JAXBElement<GetReferenceResponse>(_GetReferenceResponse_QNAME, GetReferenceResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetListeOffresResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link InfosPersonnes }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetListeOffresResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link InfosPersonnes }{@code >}
      */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "getListeOffresResponse")
-    public JAXBElement<GetListeOffresResponse> createGetListeOffresResponse(GetListeOffresResponse value) {
-        return new JAXBElement<GetListeOffresResponse>(_GetListeOffresResponse_QNAME, GetListeOffresResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "infosPersonnes")
+    public JAXBElement<InfosPersonnes> createInfosPersonnes(InfosPersonnes value) {
+        return new JAXBElement<InfosPersonnes>(_InfosPersonnes_QNAME, InfosPersonnes.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Paiement }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link Paiement }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "paiement")
+    public JAXBElement<Paiement> createPaiement(Paiement value) {
+        return new JAXBElement<Paiement>(_Paiement_QNAME, Paiement.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReservationValide }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReservationValide }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "reservationValide")
+    public JAXBElement<ReservationValide> createReservationValide(ReservationValide value) {
+        return new JAXBElement<ReservationValide>(_ReservationValide_QNAME, ReservationValide.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReservationValideResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReservationValideResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "reservationValideResponse")
+    public JAXBElement<ReservationValideResponse> createReservationValideResponse(ReservationValideResponse value) {
+        return new JAXBElement<ReservationValideResponse>(_ReservationValideResponse_QNAME, ReservationValideResponse.class, null, value);
     }
 
 }

@@ -35,9 +35,12 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 				continue;
 			}
 		}
+		if(res == null) {
+			res = new Reservation(hotel, identifiantOffre, infosPersonne, dateDebut, dateFin);
+			return true;
+		}
 		
-		res = new Reservation(hotel, identifiantOffre, infosPersonne, dateDebut, dateFin);
-		return true;
+		return false;
 	}
 	
 	@WebMethod

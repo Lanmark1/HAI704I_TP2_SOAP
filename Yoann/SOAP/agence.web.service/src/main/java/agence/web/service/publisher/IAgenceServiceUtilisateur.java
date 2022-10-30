@@ -10,14 +10,13 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.datatype.DatatypeConfigurationException;
 
-import agence.web.service.client.Offre;
-import agence.web.service.model.InfosPersonnes;
+import agence.web.service.client.*;
 
 @WebService
 public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
-	public void Reservation(InfosPersonnes infos, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException;
+	public int Reservation(InfosPersonnes infos, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
 	
 	
 	@WebMethod

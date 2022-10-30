@@ -39,13 +39,7 @@ public class Paiement {
     protected String dateExpiration;
     protected String numeroCarte;
 
-    public Paiement(int i, String string, String string2) {
-		this.cvv = i;
-		this.dateExpiration = string;
-		this.numeroCarte = string2;
-	}
-
-	/**
+    /**
      * Obtient la valeur de la propriété cvv.
      * 
      */

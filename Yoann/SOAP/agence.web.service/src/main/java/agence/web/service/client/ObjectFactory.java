@@ -68,7 +68,7 @@ public class ObjectFactory {
      * 
      */
     public InfosPersonnes createInfosPersonnes() {
-        return new InfosPersonnes();
+        return new InfosPersonnes(null, null);
     }
 
     /**
@@ -76,7 +76,7 @@ public class ObjectFactory {
      * 
      */
     public Paiement createPaiement() {
-        return new Paiement();
+        return new Paiement(0, null, null);
     }
 
     /**
