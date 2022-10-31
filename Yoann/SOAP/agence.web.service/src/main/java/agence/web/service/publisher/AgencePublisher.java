@@ -19,10 +19,15 @@ public class AgencePublisher {
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
 		AgenceServiceUtilisateurImpl asui = new AgenceServiceUtilisateurImpl(nomAgence1);
-//		Endpoint.publish("http://localhost:8080/agencewebservice", new AgenceServiceUtilisateurImpl(nomAgence1));
+		
+//		System.out.println(asui.ConsultationOffre(520, "Nice", 3, df.parse("10-12-2022"), df.parse("10-12-2022")));
 		
 		
-		System.out.println(asui.ConsultationOffre(50, "Nice", 3, df.parse("10-12-2022"), df.parse("10-12-2022")));
+		Endpoint.publish("http://localhost:8088/agencewebservice", new AgenceServiceUtilisateurImpl(nomAgence1));
+		
+		System.err.println("WS Agence is ready");
+		
+//		System.out.println(asui.ConsultationOffre(520, "Nice", 3, df.parse("10-12-2022"), df.parse("10-12-2022")));
 	}
 
 }

@@ -21,7 +21,7 @@ import agence.web.reservationWS.HotelServiceReservationImplService;
 import agence.web.reservationWS.IHotelServiceReservation;
 import agence.web.reservationWS.InfosPersonnes;
 
-@WebService(endpointInterface = "agence.web.services.services.IAgenceServiceUtilisateur")
+@WebService(endpointInterface = "agence.web.service.client.IAgenceServiceUtilisateur")
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 
 	Agence a;
@@ -60,7 +60,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	}
 
 	@Override
-	public ArrayList<Offre> ConsultationOffre(int prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
+	public ArrayList<Offre> ConsultationOffre(float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
 		
 		URL url;
 		
@@ -77,7 +77,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			url = new URL("http://localhost:8080/hotelserviceconsult?wsdl");
 			HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
 			IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
-			return (ArrayList<Offre>) proxy.getListeOffres(a.getIdentifiant(), ville , dateDebutGC, dateFinGC, nbrEtoiles);
+			return (ArrayList<Offre>) proxy.getListeOffres(a.getIdentifiant(), a.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrEtoiles);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

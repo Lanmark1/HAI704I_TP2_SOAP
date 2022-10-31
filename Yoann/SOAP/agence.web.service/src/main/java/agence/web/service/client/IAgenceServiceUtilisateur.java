@@ -20,7 +20,7 @@ public interface IAgenceServiceUtilisateur {
 	
 	
 	@WebMethod
-	public ArrayList<Offre> ConsultationOffre(int prixMax, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException;
+	public ArrayList<Offre> ConsultationOffre(float prixMax, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException;
 	
 	
 }

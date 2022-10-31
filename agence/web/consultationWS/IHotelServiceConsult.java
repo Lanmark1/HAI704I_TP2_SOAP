@@ -30,9 +30,11 @@ public interface IHotelServiceConsult {
      * 
      * @param arg3
      * @param arg2
+     * @param arg5
      * @param arg4
      * @param arg1
      * @param arg0
+     * @param arg6
      * @return
      *     returns java.util.List<agence.web.consultationWS.Offre>
      */
@@ -47,11 +49,15 @@ public interface IHotelServiceConsult {
         @WebParam(name = "arg1", targetNamespace = "")
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
-        XMLGregorianCalendar arg2,
+        String arg2,
         @WebParam(name = "arg3", targetNamespace = "")
-        XMLGregorianCalendar arg3,
+        float arg3,
         @WebParam(name = "arg4", targetNamespace = "")
-        int arg4);
+        XMLGregorianCalendar arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        XMLGregorianCalendar arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        int arg6);
 
     /**
      * 

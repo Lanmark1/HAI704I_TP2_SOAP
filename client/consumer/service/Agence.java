@@ -1,5 +1,5 @@
 
-package agence.web.consultationWS;
+package client.consumer.service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "agence", propOrder = {
+@XmlType(name = "agence", namespace = "http://services.service.web.hotel/", propOrder = {
     "identifiant",
     "login",
     "motdepasse"

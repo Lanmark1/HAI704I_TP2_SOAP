@@ -17,6 +17,6 @@ public interface IHotelServiceConsult {
 	public ArrayList<Hotel> getHotelsService();
 	
 	@WebMethod
-	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes);
+	public ArrayList<Offre> getListeOffres(int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes);
 	
 }

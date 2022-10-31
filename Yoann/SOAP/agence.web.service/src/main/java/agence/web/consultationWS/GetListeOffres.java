@@ -20,9 +20,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,17 +39,21 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "arg1",
     "arg2",
     "arg3",
-    "arg4"
+    "arg4",
+    "arg5",
+    "arg6"
 })
 public class GetListeOffres {
 
     protected int arg0;
     protected String arg1;
+    protected String arg2;
+    protected float arg3;
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar arg2;
+    protected XMLGregorianCalendar arg4;
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar arg3;
-    protected int arg4;
+    protected XMLGregorianCalendar arg5;
+    protected int arg6;
 
     /**
      * Obtient la valeur de la propriété arg0.
@@ -94,10 +100,10 @@ public class GetListeOffres {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getArg2() {
+    public String getArg2() {
         return arg2;
     }
 
@@ -106,51 +112,91 @@ public class GetListeOffres {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setArg2(XMLGregorianCalendar value) {
+    public void setArg2(String value) {
         this.arg2 = value;
     }
 
     /**
      * Obtient la valeur de la propriété arg3.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
      */
-    public XMLGregorianCalendar getArg3() {
+    public float getArg3() {
         return arg3;
     }
 
     /**
      * Définit la valeur de la propriété arg3.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
      */
-    public void setArg3(XMLGregorianCalendar value) {
+    public void setArg3(float value) {
         this.arg3 = value;
     }
 
     /**
      * Obtient la valeur de la propriété arg4.
      * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
-    public int getArg4() {
+    public XMLGregorianCalendar getArg4() {
         return arg4;
     }
 
     /**
      * Définit la valeur de la propriété arg4.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
      */
-    public void setArg4(int value) {
+    public void setArg4(XMLGregorianCalendar value) {
         this.arg4 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg5.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getArg5() {
+        return arg5;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg5.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setArg5(XMLGregorianCalendar value) {
+        this.arg5 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg6.
+     * 
+     */
+    public int getArg6() {
+        return arg6;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg6.
+     * 
+     */
+    public void setArg6(int value) {
+        this.arg6 = value;
     }
 
 }

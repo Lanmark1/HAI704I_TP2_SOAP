@@ -22,7 +22,11 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	}	
 	
 	@WebMethod
-	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes) {	
+	public ArrayList<Offre> getListeOffres(int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes) {	
+		
+		if(!lstOffre.isEmpty()) {
+			lstOffre.clear();
+		}
 		
 		// On parcourt la liste des hotels
 		
@@ -31,21 +35,35 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 		// Pour chaque offre on vérifie que le nombre de lits est supérieur au nombre de personnes
 		
 		// Si oui, on ajoute à notre liste d'offres si elle n'est pas déjà ajoutée.
-
+		float prixPartenaire;
+		
 		for (Hotel h : lstHotels) {
-			for (Offre e : h.getListeChambres()) {
-				if(e.getDateDispo().before(DateDebut)) {
-					if(e.getNbrLits() >= nbrPersonnes) {
-						if(!lstOffre.contains(e)) {
-							lstOffre.add(e);
+			
+			if(h.getAgenceById(identifiant) != null) {
+				prixPartenaire = (float) (prix * 1.1);
+			}			
+			
+			else {
+				prixPartenaire = prix;
+			}
+			
+			if(h.getVille().equals(ville)) {
+				for (Offre e : h.getListeChambres()) {
+					if(e.getPrix() <= prix) {
+						if(e.getDateDispo().before(DateDebut)) {
+							if(e.getNbrLits() >= nbrPersonnes) {
+								if(!lstOffre.contains(e)) {
+									lstOffre.add(e);
+									}
 							}
 						}
 					}
 				}
 			}	
+		}
+		
 		return lstOffre;
-	}
-
+}
 	
 	
 	@WebMethod
