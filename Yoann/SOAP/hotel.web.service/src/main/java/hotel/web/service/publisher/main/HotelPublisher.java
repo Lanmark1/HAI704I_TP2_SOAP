@@ -18,8 +18,7 @@ public class HotelPublisher {
 	public static void main(String[] args) throws Exception {
 		ArrayList<Hotel> hotels = getHotels();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		
-		
+
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));
 		Endpoint.publish("http://localhost:8080/hotelservicereservation", new HotelServiceReservationImpl(hotels));
 
@@ -83,6 +82,7 @@ public class HotelPublisher {
 				hotel1,
 				hotel2
 		));
+		
 		return hotels;
 	}
 

@@ -8,8 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import agence.web.consultationWS.HotelServiceConsultImplService;
 import agence.web.consultationWS.IHotelServiceConsult;
@@ -22,15 +20,14 @@ public class ConsultationMain {
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
 		IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
-		
+		System.out.println(proxy.getHotelsService());
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(df.parse("11-10-2022"));
-		
 //		System.out.println(proxy.getHotelsService());
-		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
-		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
-		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
-		
+//		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+//		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
+//		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
+//		
 	}
 
 }

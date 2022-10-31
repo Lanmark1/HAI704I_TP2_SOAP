@@ -10,6 +10,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import agence.web.consultationWS.HotelServiceConsultImplService;
+import agence.web.consultationWS.IHotelServiceConsult;
 import agence.web.reservationWS.ExceptionGetReference_Exception;
 import agence.web.reservationWS.HotelServiceReservationImplService;
 import agence.web.reservationWS.IHotelServiceReservation;
@@ -25,8 +27,8 @@ public class ReservationMain {
 		
 		URL url = new URL("http://localhost:8080/hotelservicereservation?wsdl");
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		HotelServiceReservationImplService consultImpl = new HotelServiceReservationImplService(url);
-		IHotelServiceReservation proxy = consultImpl.getHotelServiceReservationImplPort();
+		HotelServiceReservationImplService resaImpl = new HotelServiceReservationImplService(url);
+		IHotelServiceReservation proxy= resaImpl.getHotelServiceReservationImplPort();
 		
 		Paiement p1 = new Paiement(978, "17-11-2987", "36416873239");
 		

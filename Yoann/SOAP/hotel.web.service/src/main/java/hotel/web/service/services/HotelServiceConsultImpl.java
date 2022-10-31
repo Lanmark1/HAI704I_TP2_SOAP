@@ -31,18 +31,18 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 		// Pour chaque offre on vérifie que le nombre de lits est supérieur au nombre de personnes
 		
 		// Si oui, on ajoute à notre liste d'offres si elle n'est pas déjà ajoutée.
-		
+
 		for (Hotel h : lstHotels) {
 			for (Offre e : h.getListeChambres()) {
 				if(e.getDateDispo().before(DateDebut)) {
-					if(e.getNbrLits() > nbrPersonnes) {
+					if(e.getNbrLits() >= nbrPersonnes) {
 						if(!lstOffre.contains(e)) {
-						lstOffre.add(e);
-					}
+							lstOffre.add(e);
+							}
+						}
 					}
 				}
-			}
-		}	
+			}	
 		return lstOffre;
 	}
 
