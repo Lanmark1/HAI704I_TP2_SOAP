@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import hotel.web.service.model.Agence;
 import hotel.web.service.model.Hotel;
 import hotel.web.service.model.Offre;
 
@@ -18,8 +19,7 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	public HotelServiceConsultImpl(ArrayList<Hotel> hotels) {
 		this.lstHotels = hotels; 
 		lstOffre = new ArrayList<Offre>();	
-	}
-	
+	}	
 	
 	@WebMethod
 	public ArrayList<Offre> getListeOffres(int identifiant, String password, Date DateDebut, Date DateFin, int nbrPersonnes) {	
@@ -43,7 +43,6 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 					}
 				}
 			}	
-		System.out.println("je suis là");
 		return lstOffre;
 	}
 

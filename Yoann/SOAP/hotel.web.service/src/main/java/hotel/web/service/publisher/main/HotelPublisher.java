@@ -22,12 +22,10 @@ public class HotelPublisher {
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));
 		Endpoint.publish("http://localhost:8080/hotelservicereservation", new HotelServiceReservationImpl(hotels));
 
+		HotelServiceConsultImpl hsci = new HotelServiceConsultImpl(hotels);		
 		
 		System.err.println("Server is ready");
 
-		
-		
-	
 	}
 	
 	public static ArrayList<Hotel> getHotels() throws Exception{

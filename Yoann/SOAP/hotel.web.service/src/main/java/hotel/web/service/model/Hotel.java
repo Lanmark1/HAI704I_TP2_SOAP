@@ -17,7 +17,6 @@ public class Hotel {
 	private ArrayList<Agence> agencePartenaires;
 		
 	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres, ArrayList<Agence> agencesPartenaire) {
-		super();
 		this.pays = pays;
 		this.ville = ville;
 		this.rue = rue;
@@ -26,11 +25,8 @@ public class Hotel {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.etoiles = etoiles;
-		this.setListeChambres(listeChambres);
-		this.setAgencePartenaires(agencesPartenaire);
-		for (Offre e : listeChambres) {
-			e.setHotel(this);
-		}
+		this.listeChambres = listeChambres;
+		this.agencePartenaires = agencesPartenaire;
 		for (Agence a : agencesPartenaire) {
 			a.addHotels(this);
 		}
