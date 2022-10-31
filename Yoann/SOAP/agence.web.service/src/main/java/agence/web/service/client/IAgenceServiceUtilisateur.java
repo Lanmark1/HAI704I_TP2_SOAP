@@ -1,4 +1,4 @@
-package agence.web.service.publisher;
+package agence.web.service.client;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import agence.web.reservationWS.InfosPersonnes;
 public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
-	public int Reservation(InfosPersonnes infos, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
+	public int Reservation(InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
 	
 	
 	@WebMethod

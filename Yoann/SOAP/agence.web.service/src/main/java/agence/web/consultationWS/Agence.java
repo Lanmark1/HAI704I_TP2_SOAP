@@ -34,9 +34,20 @@ import javax.xml.bind.annotation.XmlType;
 public class Agence {
 
     protected int identifiant;
+    protected String password;
     protected String login;
 
-    /**
+    public Agence() {
+    	
+    }
+    
+    public Agence(int i, String string, String string2) {
+    	this.identifiant = i;
+    	this.login = string;
+    	this.password = string2;
+    }
+
+	/**
      * Obtient la valeur de la propriété identifiant.
      * 
      */
@@ -64,6 +75,10 @@ public class Agence {
         return login;
     }
 
+    public String getPassword() {
+    	return password;
+    }
+    
     /**
      * Définit la valeur de la propriété login.
      * 

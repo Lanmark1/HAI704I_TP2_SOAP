@@ -31,6 +31,10 @@ public class Agence {
 	public String getLogin() {
 		return login;
 	}
+	
+	public String getMotdepasse() {
+		return motdepasse;
+	}
 
 	public void setLogin(String login) {
 		this.login = login;
