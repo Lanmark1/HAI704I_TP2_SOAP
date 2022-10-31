@@ -75,7 +75,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			url = new URL("http://localhost:8080/hotelserviceconsult?wsdl");
 			HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
 			IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
-			return proxy.getListeOffres(15051, ville , dateDebutGC, dateFinGC, nbrEtoiles);
+			return (ArrayList<Offre>) proxy.getListeOffres(15051, ville , dateDebutGC, dateFinGC, nbrEtoiles);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

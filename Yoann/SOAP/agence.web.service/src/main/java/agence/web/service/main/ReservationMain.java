@@ -10,8 +10,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import agence.web.consultationWS.HotelServiceConsultImplService;
-import agence.web.consultationWS.IHotelServiceConsult;
 import agence.web.reservationWS.ExceptionGetReference_Exception;
 import agence.web.reservationWS.HotelServiceReservationImplService;
 import agence.web.reservationWS.IHotelServiceReservation;

@@ -43,6 +43,7 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 					}
 				}
 			}	
+		System.out.println("je suis là");
 		return lstOffre;
 	}
 
