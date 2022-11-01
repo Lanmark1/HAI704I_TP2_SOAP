@@ -16,11 +16,14 @@ import agence.web.reservationWS.InfosPersonnes;
 public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
-	public int Reservation(int identifiantAgence, InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
+	public int Reservation(String agence, InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
 	
 	
 	@WebMethod
-	public ArrayList<Offre> ConsultationOffre(int IdentifiantAgence, float prixMax, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException;
+	public ArrayList<Offre> ConsultationOffre(String agence, float prixMax, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException;
 	
+
+	@WebMethod
+	public ArrayList<String> getAgenceNames();
 	
 }

@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 import javax.swing.JComboBox;
@@ -32,6 +33,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import client.consumer.service.AgenceServiceUtilisateurImplService;
 import client.consumer.service.DatatypeConfigurationException_Exception;
 import client.consumer.service.IAgenceServiceUtilisateur;
+import client.consumer.service.Offre;
 
 
 public class InterfaceGUI extends JFrame implements ActionListener {
@@ -127,7 +129,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		comboBox.addItem("3");
 		comboBox.addItem("4");
 		comboBox.addItem("5");
-		comboBox.setBounds(130, 58, 69, 24);
+		comboBox.setBounds(174, 58, 69, 24);
 //		comboBox.addItemListener(this);
 		contentPane.add(comboBox);
 		
@@ -137,16 +139,16 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		contentPane.add(lblNomAnimal_1_1_1);
 		
 		JLabel lblDateArrivee = new JLabel("Date de départ : ");
-		lblDateArrivee.setBounds(538, 63, 144, 15);
+		lblDateArrivee.setBounds(492, 63, 144, 15);
 		contentPane.add(lblDateArrivee);
 		
 		JLabel lblNomAnimal_1_1_1_1 = new JLabel("Date d'arrivée : ");
-		lblNomAnimal_1_1_1_1.setBounds(538, 28, 144, 15);
+		lblNomAnimal_1_1_1_1.setBounds(492, 28, 144, 15);
 		contentPane.add(lblNomAnimal_1_1_1_1);
 		
 		nomVille = new JTextField();
 		nomVille.addActionListener(this);
-		nomVille.setBounds(130, 25, 143, 19);
+		nomVille.setBounds(174, 26, 143, 19);
 		contentPane.add(nomVille);
 		nomVille.setColumns(10);
 		                                  
@@ -188,7 +190,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		
 		prixMaximum = new JTextField();
 		prixMaximum.setColumns(10);
-		prixMaximum.setBounds(130, 102, 69, 19);
+		prixMaximum.setBounds(174, 94, 69, 19);
 		contentPane.add(prixMaximum);
 		
 		dateArrivee = new JTextField();
@@ -204,15 +206,14 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		JComboBox<String> comboBox_1 = new JComboBox<String>();
 		comboBox_1.addItem("");
 		
-		for (String s : proxy.lstAgences) {
-			comboBox_1.addItem(s.getLogin());
+		for (String s : proxy.getAgenceNames()) {
+			comboBox_1.addItem(s);
 		}
-		comboBox_1.addItem("2");
 		comboBox_1.setBounds(654, 105, 151, 24);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblDateArrivee_1 = new JLabel("Agence : ");
-		lblDateArrivee_1.setBounds(538, 114, 144, 15);
+		lblDateArrivee_1.setBounds(492, 105, 144, 15);
 		contentPane.add(lblDateArrivee_1);
 	
 	}
@@ -224,10 +225,12 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand(); 
 		if(command.equals("Validez")) {
-			
+				ArrayList<Offre> lstOffres = new ArrayList<>();
+				lstOffres.clear();
 				String x = String.valueOf(comboBox.getSelectedItem()).trim();
 				int etoiles = Integer.parseInt(x);
 				
+				String agenceName = String.valueOf(comboBox.getSelectedItem()).trim();
 
 				int prix =  Integer.parseInt(prixMaximum.getText().trim());
 				
@@ -246,7 +249,11 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				try {
 					XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
 					XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
-					System.out.println(proxy.consultationOffre(prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC));
+					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC);
+					
+					for (Offre o : lstOffres) {
+						model.addRow(new Object[]
+								{ nomVille.getText(), o.getPrix(), 3});}
 				} catch (DatatypeConfigurationException e1) {
 					e1.printStackTrace();
 				} catch (DatatypeConfigurationException_Exception e1) {

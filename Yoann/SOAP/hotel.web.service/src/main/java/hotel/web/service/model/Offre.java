@@ -13,6 +13,7 @@ public class Offre {
 	
 	public Offre(int nbrLits, Date dateDispo, int prix) {
 		identifiant++;
+		this.hotel = new Hotel(); 
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);

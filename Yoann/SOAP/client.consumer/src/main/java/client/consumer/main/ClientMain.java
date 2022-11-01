@@ -14,6 +14,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import client.consumer.service.AgenceServiceUtilisateurImplService;
 import client.consumer.service.DatatypeConfigurationException_Exception;
 import client.consumer.service.IAgenceServiceUtilisateur;
+import client.consumer.service.Offre;
 
 public class ClientMain {
 
@@ -28,7 +29,7 @@ public class ClientMain {
 		c.setTime(df.parse("11-10-2022"));
 		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
 
-		System.out.println(proxy.consultationOffre(150, "Montpellier", 3, date2, date2));
+		System.out.println(proxy.consultationOffre("Agence1", 150, "Montpellier", 3, date2, date2).get(0).getPrix());
 		
 	}
 

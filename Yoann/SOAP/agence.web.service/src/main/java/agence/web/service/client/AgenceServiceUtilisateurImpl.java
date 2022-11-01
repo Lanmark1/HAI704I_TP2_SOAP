@@ -31,7 +31,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	}
 	
 	@Override
-	public int Reservation(int identifiantAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
+	public int Reservation(String nameAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
 		
 		URL url;
 		Agence agence = new Agence();
@@ -48,7 +48,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			HotelServiceReservationImplService ResImpl = new HotelServiceReservationImplService(url);
 			IHotelServiceReservation proxy = ResImpl.getHotelServiceReservationImplPort();
 			for ( Agence a : lstAgences) {
-				if(a.getIdentifiant() == identifiantAgence) {
+				if(a.getLogin().equals(nameAgence)) {
 					agence = a;
 					continue;
 				}
@@ -64,7 +64,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	}
 
 	@Override
-	public ArrayList<Offre> ConsultationOffre(int identifiantAgence, float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
+	public ArrayList<Offre> ConsultationOffre(String nameAgence, float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
 		
 		URL url;
 		Agence agence = new Agence();
@@ -84,7 +84,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
 			
 			for ( Agence a : lstAgences) {
-				if(a.getIdentifiant() == identifiantAgence) {
+				if(a.getLogin().equals(nameAgence)){
 					agence = a;
 					continue;
 				}
@@ -95,5 +95,14 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<String> getAgenceNames() {
+		ArrayList<String> names = new ArrayList<>();
+		for (Agence a : lstAgences) {
+			names.add(a.getLogin());
+		}
+		return names;
 	}
 }

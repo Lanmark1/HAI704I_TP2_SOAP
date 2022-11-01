@@ -16,6 +16,8 @@ public class Hotel {
 	private ArrayList<Offre> listeChambres;
 	private ArrayList<Agence> agencePartenaires;
 		
+	public Hotel() {};
+	
 	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres, ArrayList<Agence> agencesPartenaire) {
 		this.pays = pays;
 		this.ville = ville;
