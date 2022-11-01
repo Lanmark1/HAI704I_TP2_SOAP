@@ -1,5 +1,5 @@
 
-package agence.web.consultationWS;
+package client.consumer.service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,22 +9,21 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Classe Java pour getListeOffres complex type.
+ * <p>Classe Java pour ConsultationOffre complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="getListeOffres"&gt;
+ * &lt;complexType name="ConsultationOffre"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="arg3" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,64 +33,62 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getListeOffres", propOrder = {
+@XmlType(name = "ConsultationOffre", propOrder = {
     "arg0",
     "arg1",
     "arg2",
     "arg3",
     "arg4",
-    "arg5",
-    "arg6"
+    "arg5"
 })
-public class GetListeOffres {
+public class ConsultationOffre {
 
-    protected int arg0;
-    protected String arg1;
+    protected String arg0;
+    protected float arg1;
     protected String arg2;
-    protected float arg3;
+    protected int arg3;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar arg4;
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar arg5;
-    protected int arg6;
 
     /**
      * Obtient la valeur de la propriété arg0.
-     * 
-     */
-    public int getArg0() {
-        return arg0;
-    }
-
-    /**
-     * Définit la valeur de la propriété arg0.
-     * 
-     */
-    public void setArg0(int value) {
-        this.arg0 = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété arg1.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getArg1() {
-        return arg1;
+    public String getArg0() {
+        return arg0;
     }
 
     /**
-     * Définit la valeur de la propriété arg1.
+     * Définit la valeur de la propriété arg0.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setArg1(String value) {
+    public void setArg0(String value) {
+        this.arg0 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg1.
+     * 
+     */
+    public float getArg1() {
+        return arg1;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg1.
+     * 
+     */
+    public void setArg1(float value) {
         this.arg1 = value;
     }
 
@@ -123,7 +120,7 @@ public class GetListeOffres {
      * Obtient la valeur de la propriété arg3.
      * 
      */
-    public float getArg3() {
+    public int getArg3() {
         return arg3;
     }
 
@@ -131,7 +128,7 @@ public class GetListeOffres {
      * Définit la valeur de la propriété arg3.
      * 
      */
-    public void setArg3(float value) {
+    public void setArg3(int value) {
         this.arg3 = value;
     }
 
@@ -181,22 +178,6 @@ public class GetListeOffres {
      */
     public void setArg5(XMLGregorianCalendar value) {
         this.arg5 = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété arg6.
-     * 
-     */
-    public int getArg6() {
-        return arg6;
-    }
-
-    /**
-     * Définit la valeur de la propriété arg6.
-     * 
-     */
-    public void setArg6(int value) {
-        this.arg6 = value;
     }
 
 }

@@ -2,6 +2,7 @@ package hotel.web.service.model;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Hotel {
 	
@@ -31,6 +32,9 @@ public class Hotel {
 		this.agencePartenaires = agencesPartenaire;
 		for (Agence a : agencesPartenaire) {
 			a.addHotels(this);
+		}
+		for (Offre o : listeChambres) {
+			o.addHotels(this);
 		}
 	}
 

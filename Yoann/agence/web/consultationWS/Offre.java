@@ -19,7 +19,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="dateDispo" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="hotel" type="{http://services.service.web.hotel/}hotel" minOccurs="0"/&gt;
  *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="nbrLits" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
@@ -34,7 +33,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "offre", propOrder = {
     "dateDispo",
-    "hotel",
     "identifiant",
     "nbrLits",
     "prix"
@@ -43,7 +41,6 @@ public class Offre {
 
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateDispo;
-    protected Hotel hotel;
     protected int identifiant;
     protected int nbrLits;
     protected int prix;
@@ -70,30 +67,6 @@ public class Offre {
      */
     public void setDateDispo(XMLGregorianCalendar value) {
         this.dateDispo = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété hotel.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Hotel }
-     *     
-     */
-    public Hotel getHotel() {
-        return hotel;
-    }
-
-    /**
-     * Définit la valeur de la propriété hotel.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Hotel }
-     *     
-     */
-    public void setHotel(Hotel value) {
-        this.hotel = value;
     }
 
     /**

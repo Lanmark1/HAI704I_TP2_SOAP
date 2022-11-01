@@ -1,5 +1,5 @@
 
-package agence.web.reservationWS;
+package client.consumer.service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "paiement", propOrder = {
+@XmlType(name = "paiement", namespace = "http://services.service.web.hotel/", propOrder = {
     "cvv",
     "dateExpiration",
     "numeroCarte"
@@ -39,17 +39,7 @@ public class Paiement {
     protected String dateExpiration;
     protected String numeroCarte;
 
-    public Paiement(int i, String string, String string2) {
-    	this.cvv = i;
-    	this.dateExpiration = string;
-    	this.numeroCarte = string2;
-    }
-
-	public Paiement() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
+    /**
      * Obtient la valeur de la propriété cvv.
      * 
      */

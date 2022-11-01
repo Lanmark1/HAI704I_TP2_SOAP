@@ -1,5 +1,7 @@
 package hotel.web.service.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class Offre {
@@ -7,29 +9,26 @@ public class Offre {
 	private int nbrLits;
 	private Date dateDispo;
 	private int prix;
-	private Hotel hotel;
+	private ArrayList<Hotel> hotel;
+
 	
 	public Offre() {}
 	
 	public Offre(int nbrLits, Date dateDispo, int prix) {
 		identifiant++;
-		this.hotel = new Hotel(); 
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);
 		setPrix(prix);
+		this.hotel = new ArrayList<Hotel>();
 	}
 
 	public int getIdentifiant() {
 		return identifiant;
 	}
-
-	public Hotel getHotel() {
-		return hotel;
-	}
 	
-	public void setHotel(Hotel hotel) {
-		this.hotel = hotel;
+	public int getEtoiles() {
+		return hotel.get(0).getEtoiles();
 	}
 
 	public void setIdentifiant(int identifiant) {
@@ -44,7 +43,9 @@ public class Offre {
 		this.nbrLits = nbrLits;
 	}
 
-	
+	public Hotel getHotel() {
+		return hotel.get(0);
+	}
 	
 	public Date getDateDispo() {
 		return dateDispo;
@@ -60,5 +61,10 @@ public class Offre {
 
 	public void setPrix(int prix) {
 		this.prix = prix;
+	}
+
+	public void addHotels(Hotel hotel2) {
+		this.hotel.add(hotel2);
+		
 	}
 }

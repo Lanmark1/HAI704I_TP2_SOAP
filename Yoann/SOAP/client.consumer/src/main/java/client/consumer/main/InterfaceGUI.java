@@ -65,6 +65,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	private JTextField prixMaximum_1;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JToggleButton tglbtnSupprimer;
 	/**
 	 * Launch the application.
 	 * @throws RemoteException 
@@ -153,7 +154,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		nomVille.setColumns(10);
 		                                  
 		
-		JToggleButton tglbtnSupprimer = new JToggleButton("Reserver");
+		tglbtnSupprimer = new JToggleButton("Reserver");
 		tglbtnSupprimer.addActionListener(this);
 		tglbtnSupprimer.setBounds(150, 182, 123, 25);
 		contentPane.add(tglbtnSupprimer);
@@ -253,7 +254,12 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					
 					for (Offre o : lstOffres) {
 						model.addRow(new Object[]
-								{ nomVille.getText(), o.getPrix(), 3});}
+								{ nomVille.getText(), o.getPrix(), 3});
+						}
+				
+				if(!table.getSelectionModel().isSelectionEmpty()) {
+					tglbtnSupprimer.setVisible(true);
+				}
 				} catch (DatatypeConfigurationException e1) {
 					e1.printStackTrace();
 				} catch (DatatypeConfigurationException_Exception e1) {
@@ -286,5 +292,9 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		
 		
 		}
+		
+		if(command.equals("Reserver")) {
+			
+		
 	}
-}
+}}

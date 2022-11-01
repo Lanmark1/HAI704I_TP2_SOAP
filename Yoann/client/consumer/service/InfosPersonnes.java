@@ -1,5 +1,5 @@
 
-package agence.web.reservationWS;
+package client.consumer.service;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "infosPersonnes", propOrder = {
+@XmlType(name = "infosPersonnes", namespace = "http://services.service.web.hotel/", propOrder = {
     "nom",
     "paiement"
 })
@@ -36,16 +36,7 @@ public class InfosPersonnes {
     protected String nom;
     protected Paiement paiement;
 
-    public InfosPersonnes(String string, Paiement p1) {
-    	this.nom = string;
-    	this.paiement = p1;
-    }
-
-	public InfosPersonnes() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
+    /**
      * Obtient la valeur de la propriété nom.
      * 
      * @return
