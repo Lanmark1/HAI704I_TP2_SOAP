@@ -1,5 +1,9 @@
 package hotel.web.service.repository;
 
-public interface IHotelRepository {
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+
+public interface IHotelRepository{
 
 }

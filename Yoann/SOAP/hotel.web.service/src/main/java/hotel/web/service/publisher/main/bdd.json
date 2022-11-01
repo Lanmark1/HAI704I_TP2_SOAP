@@ -3,22 +3,41 @@
         {
             "identifiant": 34000,
             "login": "AgenceMontpellier",
-            "motdepasse": "passwordAMtp"
+            "motdepasse": "passwordAMtp",
+            "hotelPartenaires" : [
+                321938,
+                321231,
+                321321,
+                321998
+            ]
         },
         {
             "identifiant": 57000,
             "login": "AgenceNancy",
-            "motdepasse": "passwordANan"
+            "motdepasse": "passwordANan",
+            "hotelPartenaires" : [
+                321938,
+                321231,
+                321321,
+                321998
+            ]
         },
         {
             "identifiant": 13000,
             "login": "AgenceMarseille",
-            "motdepasse": "passwordAMar"
+            "motdepasse": "passwordAMar",
+            "hotelPartenaires" : [
+                321938,
+                321231,
+                321321,
+                321998
+            ]
         }
     ],
 
     "Hotel": [
         {
+            "identifiant" : 321938,
             "pays" : "France",
             "ville" : "Montpellier",
             "rue" : "Place de la comedie",
@@ -46,9 +65,14 @@
                     "DateDispo" : "13-10-2022",
                     "prix" : 120
                 }
+            ],
+            "agencePartenaires" : [
+                34000,
+                13000
             ]
         },
         {
+            "identifiant" : 321231,
             "pays" : "France",
             "ville" : "Marseille",
             "rue" : "Place de marseille",
@@ -76,9 +100,14 @@
                     "DateDispo" : "13-10-2022",
                     "prix" : 120
                 }
+            ],
+            "agencePartenaires" : [
+                34000,
+                13000
             ]
         },
         {
+            "identifiant" : 321998,
             "pays" : "France",
             "ville" : "Toulouse",
             "rue" : "Rue du stade",
@@ -106,9 +135,14 @@
                     "DateDispo" : "13-10-2022",
                     "prix" : 120
                 }
+            ],
+            "agencePartenaires" : [
+                34000,
+                13000
             ]
         },
         {
+            "identifiant" : 321321,
             "pays" : "France",
             "ville" : "Paris",
             "rue" : "Place de la tour eiffel",
@@ -136,6 +170,10 @@
                     "DateDispo" : "13-10-2022",
                     "prix" : 120
                 }
+            ],
+            "agencePartenaires" : [
+                34000,
+                13000
             ]
         }
     ]
