@@ -24,18 +24,17 @@ import agence.web.reservationWS.InfosPersonnes;
 @WebService(endpointInterface = "agence.web.service.client.IAgenceServiceUtilisateur")
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 
-	Agence a;
+	public ArrayList<Agence> lstAgences;
 	
-	public AgenceServiceUtilisateurImpl(Agence a) {
-		this.a = a;
+	public AgenceServiceUtilisateurImpl(ArrayList<Agence> agences) {
+		this.lstAgences = agences;
 	}
 	
-	
 	@Override
-	public int Reservation(InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
+	public int Reservation(int identifiantAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
 		
 		URL url;
-		
+		Agence agence = new Agence();
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(dateDebut);
 		XMLGregorianCalendar dateDebutGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
@@ -43,13 +42,18 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 		GregorianCalendar c2 = new GregorianCalendar();
 		c2.setTime(dateFin);
 		XMLGregorianCalendar dateFinGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(c2);
-
+		
 		try {
 			url = new URL("http://localhost:8080/hotelservicereservation?wsdl");
 			HotelServiceReservationImplService ResImpl = new HotelServiceReservationImplService(url);
 			IHotelServiceReservation proxy = ResImpl.getHotelServiceReservationImplPort();
-			
-			proxy.reservationValide(a.getIdentifiant(), a.getLogin(), "Password", identifiantOffre, infos, dateDebutGC, dateFinGC);
+			for ( Agence a : lstAgences) {
+				if(a.getIdentifiant() == identifiantAgence) {
+					agence = a;
+					continue;
+				}
+			}
+			proxy.reservationValide(agence.getIdentifiant(), agence.getLogin(), agence.getMotdepasse(), identifiantOffre, infos, dateDebutGC, dateFinGC);
 			return proxy.getReference();
 			
 		} catch (MalformedURLException e) {
@@ -60,9 +64,10 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	}
 
 	@Override
-	public ArrayList<Offre> ConsultationOffre(float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
+	public ArrayList<Offre> ConsultationOffre(int identifiantAgence, float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
 		
 		URL url;
+		Agence agence = new Agence();
 		
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(dateDebut);
@@ -77,7 +82,15 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			url = new URL("http://localhost:8080/hotelserviceconsult?wsdl");
 			HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
 			IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
-			return (ArrayList<Offre>) proxy.getListeOffres(a.getIdentifiant(), a.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrEtoiles);
+			
+			for ( Agence a : lstAgences) {
+				if(a.getIdentifiant() == identifiantAgence) {
+					agence = a;
+					continue;
+				}
+			}
+			
+			return (ArrayList<Offre>) proxy.getListeOffres(agence.getIdentifiant(), agence.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrEtoiles);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
