@@ -20,5 +20,8 @@ reservation : # utilisation du WS reservation de l'hotel
 consultation : # utilisation du WS consultation de l'hotel
 	(cd agence.web.service ; mvn exec:java@ConsultationMain)
 
-client : # utilisation du WS de l'agence par le client
+cli : # utilisation du WS de l'agence par le client
 	(cd client.consumer ; mvn exec:java@ClientMain)
+
+gui : # utilisation du WS de l'agence par le client (GUI)
+	(cd client.consumer ; mvn exec:java@InterfaceGUI)

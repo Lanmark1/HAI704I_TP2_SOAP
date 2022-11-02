@@ -47,6 +47,15 @@
                         <mainClass>client.consumer.main.ClientMain</mainClass>
                     </configuration>
                 </execution>
+				<execution>
+                    <id>InterfaceGUI</id>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                    <configuration>
+                        <mainClass>client.consumer.main.InterfaceGUI</mainClass>
+                    </configuration>
+                </execution>
 			</executions>
 		</plugin>
 	</plugins>
