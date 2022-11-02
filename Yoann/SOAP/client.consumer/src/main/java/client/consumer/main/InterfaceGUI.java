@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -32,8 +33,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 import client.consumer.service.AgenceServiceUtilisateurImplService;
 import client.consumer.service.DatatypeConfigurationException_Exception;
+import client.consumer.service.ExceptionGetReferenceException;
 import client.consumer.service.IAgenceServiceUtilisateur;
+import client.consumer.service.InfosPersonnes;
 import client.consumer.service.Offre;
+import client.consumer.service.ParseException_Exception;
 
 
 public class InterfaceGUI extends JFrame implements ActionListener {
@@ -45,6 +49,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	private JTextField dateDepart;
 	private DefaultTableModel model;
 	JComboBox<String> comboBox;
+	JComboBox<String> comboBox_1;
 	JComboBox<String> comboBoxAgences;
 
 //	ArrayList<Animal> cab;
@@ -59,7 +64,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	
 	
 	
-	String header[] = new String[] {"Lieu", "Prix", "Etoiles"};
+	String header[] = new String[] {"Lieu", "Identifiant", "Prix", "Etoiles"};
 	int row, col;
 	private JTable table;
 	private JTextField prixMaximum_1;
@@ -191,7 +196,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		
 		prixMaximum = new JTextField();
 		prixMaximum.setColumns(10);
-		prixMaximum.setBounds(174, 94, 69, 19);
+		prixMaximum.setBounds(174, 103, 69, 19);
 		contentPane.add(prixMaximum);
 		
 		dateArrivee = new JTextField();
@@ -204,7 +209,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		dateDepart.setBounds(654, 60, 151, 19);
 		contentPane.add(dateDepart);
 		
-		JComboBox<String> comboBox_1 = new JComboBox<String>();
+		comboBox_1 = new JComboBox<String>();
 		comboBox_1.addItem("");
 		
 		for (String s : proxy.getAgenceNames()) {
@@ -226,12 +231,21 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand(); 
 		if(command.equals("Validez")) {
+				
+				String agenceName = String.valueOf(comboBox.getSelectedItem()).trim();
+
+			
+				if(!agenceName.equals("") && !prixMaximum.getText().trim().equals("") && !dateArrivee.getText().equals("") && !dateDepart.getText().equals("") && !nomVille.getText().equals("")) {
+				
+			
 				ArrayList<Offre> lstOffres = new ArrayList<>();
 				lstOffres.clear();
+				
+				model.setRowCount(row);
+				
 				String x = String.valueOf(comboBox.getSelectedItem()).trim();
 				int etoiles = Integer.parseInt(x);
 				
-				String agenceName = String.valueOf(comboBox.getSelectedItem()).trim();
 
 				int prix =  Integer.parseInt(prixMaximum.getText().trim());
 				
@@ -254,11 +268,14 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					
 					for (Offre o : lstOffres) {
 						model.addRow(new Object[]
-								{ nomVille.getText(), o.getPrix(), 3});
+								{ nomVille.getText(), o.getIdentifiant(), o.getPrix(), 3});
 						}
-				
-				if(!table.getSelectionModel().isSelectionEmpty()) {
+
+				if(!lstOffres.isEmpty()) {
 					tglbtnSupprimer.setVisible(true);
+				}
+				else {
+					tglbtnSupprimer.setVisible(false);
 				}
 				} catch (DatatypeConfigurationException e1) {
 					e1.printStackTrace();
@@ -290,11 +307,48 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 //				}
 //			
 		
-		
+				}else {
+					JOptionPane.showMessageDialog(null, "Vous n'avez pas saisis tous les champs.");
+				}
 		}
 		
 		if(command.equals("Reserver")) {
+			if(!table.getSelectionModel().isSelectionEmpty()) {
+			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
+			System.out.println(identifiant);
+			String agenceName = String.valueOf(comboBox_1.getSelectedItem()).trim();
+			InfosPersonnes ip = new InfosPersonnes();
+			GregorianCalendar dateArriveeGC = new GregorianCalendar();
+			GregorianCalendar dateDepartGC = new GregorianCalendar();
+			try {
+				dateArriveeGC.setTime(df.parse(dateArrivee.getText()));
+				
+				dateDepartGC.setTime(df.parse(dateDepart.getText()));
+				
+
+			} catch (ParseException e2) {
+				e2.printStackTrace();
+			}
 			
-		
-	}
+			try {
+				
+				XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
+				XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
+				
+			
+				JOptionPane.showMessageDialog(null,"Vous venez de payer : " + proxy.reservation(agenceName, ip, identifiant, dateArriveeXMLGC, dateDepartXMLGC) + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+				if(table.getSelectedRow() != -1) {
+		               
+		               model.removeRow(table.getSelectedRow());
+		             
+		        }
+			} catch (DatatypeConfigurationException | DatatypeConfigurationException_Exception | ExceptionGetReferenceException | ParseException_Exception e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+		}
+			else {
+				JOptionPane.showMessageDialog(null,"Veuillez séléctionner une offre dans la table ");
+			}
+		}
 }}

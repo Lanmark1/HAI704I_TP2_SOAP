@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,29 +33,21 @@ import javax.xml.bind.annotation.XmlType;
 public class ReservationValideResponse {
 
     @XmlElement(name = "return")
-    protected Boolean _return;
+    protected float _return;
 
     /**
      * Obtient la valeur de la propriété return.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
      */
-    public Boolean isReturn() {
+    public float getReturn() {
         return _return;
     }
 
     /**
      * Définit la valeur de la propriété return.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
      */
-    public void setReturn(Boolean value) {
+    public void setReturn(float value) {
         this._return = value;
     }
 

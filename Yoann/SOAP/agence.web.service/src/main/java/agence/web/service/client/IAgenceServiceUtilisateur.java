@@ -16,7 +16,7 @@ import agence.web.reservationWS.InfosPersonnes;
 public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
-	public int Reservation(String agence, InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
+	public float Reservation(String agence, InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
 	
 	
 	@WebMethod
@@ -25,5 +25,8 @@ public interface IAgenceServiceUtilisateur {
 
 	@WebMethod
 	public ArrayList<String> getAgenceNames();
+	
+	@WebMethod
+	public int getReferenceResa();
 	
 }

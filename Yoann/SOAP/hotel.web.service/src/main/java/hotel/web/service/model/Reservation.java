@@ -12,7 +12,7 @@ public class Reservation {
 	private InfosPersonnes infosClient;
 	private Date dateDebut;
 	private Date dateFin;
-	private static int cptIdentifiant = 0; 
+	private static int cptIdentifiant = 1000; 
 	
 	public Reservation(Hotel hotel, int identifiantAgence, int identifiantOffre, InfosPersonnes infosClient,  Date dateDebut, Date dateFin){
 		
@@ -25,10 +25,14 @@ public class Reservation {
 			this.prix = hotel.getOffreById(identifiantOffre).getPrix();
 		}
 		else {
-			this.prix = (float) (hotel.getOffreById(identifiantOffre).getPrix()*0.10);
+			this.prix = (float) (hotel.getOffreById(identifiantOffre).getPrix()*0.90);
 		}
 		cptIdentifiant++;
 		hotel.getOffreById(identifiantOffre).setDateDispo(dateFin);
+	}
+	
+	public float getPrix() {
+		return prix;
 	}
 	
 	public int getIdentifiantReservation() {
@@ -71,7 +75,7 @@ public class Reservation {
 		this.dateFin = dateFin;
 	}
 
-	public static int getCptIdentifiant() {
+	public int getIdentifiantcpt() {
 		return cptIdentifiant;
 	}
 

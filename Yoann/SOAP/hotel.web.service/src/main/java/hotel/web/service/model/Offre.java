@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.Date;
 
 public class Offre {
-	private int identifiant;
+	private static int identifiant=0;
+	private int identifiantOffre;
 	private int nbrLits;
 	private Date dateDispo;
 	private int prix;
@@ -15,6 +16,7 @@ public class Offre {
 	public Offre() {}
 	
 	public Offre(int nbrLits, Date dateDispo, int prix) {
+
 		identifiant++;
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
@@ -24,7 +26,7 @@ public class Offre {
 	}
 
 	public int getIdentifiant() {
-		return identifiant;
+		return identifiantOffre;
 	}
 	
 	public int getEtoiles() {
@@ -32,7 +34,7 @@ public class Offre {
 	}
 
 	public void setIdentifiant(int identifiant) {
-		this.identifiant = identifiant;
+		this.identifiantOffre = identifiant;
 	}
 
 	public int getNbrLits() {

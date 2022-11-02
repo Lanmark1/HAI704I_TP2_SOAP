@@ -45,7 +45,6 @@ public class Offre {
     protected int nbrLits;
     protected int prix;
 
-
     /**
      * Obtient la valeur de la propriété dateDispo.
      * 

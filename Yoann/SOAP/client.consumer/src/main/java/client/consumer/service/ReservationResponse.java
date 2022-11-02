@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,13 +33,13 @@ import javax.xml.bind.annotation.XmlType;
 public class ReservationResponse {
 
     @XmlElement(name = "return")
-    protected int _return;
+    protected float _return;
 
     /**
      * Obtient la valeur de la propriété return.
      * 
      */
-    public int getReturn() {
+    public float getReturn() {
         return _return;
     }
 
@@ -47,7 +47,7 @@ public class ReservationResponse {
      * Définit la valeur de la propriété return.
      * 
      */
-    public void setReturn(int value) {
+    public void setReturn(float value) {
         this._return = value;
     }
 

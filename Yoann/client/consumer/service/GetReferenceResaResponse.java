@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour ReservationResponse complex type.
+ * <p>Classe Java pour getReferenceResaResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="ReservationResponse"&gt;
+ * &lt;complexType name="getReferenceResaResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,19 +27,19 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReservationResponse", propOrder = {
+@XmlType(name = "getReferenceResaResponse", propOrder = {
     "_return"
 })
-public class ReservationResponse {
+public class GetReferenceResaResponse {
 
     @XmlElement(name = "return")
-    protected float _return;
+    protected int _return;
 
     /**
      * Obtient la valeur de la propriété return.
      * 
      */
-    public float getReturn() {
+    public int getReturn() {
         return _return;
     }
 
@@ -47,7 +47,7 @@ public class ReservationResponse {
      * Définit la valeur de la propriété return.
      * 
      */
-    public void setReturn(float value) {
+    public void setReturn(int value) {
         this._return = value;
     }
 

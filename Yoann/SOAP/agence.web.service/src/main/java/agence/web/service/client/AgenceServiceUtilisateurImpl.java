@@ -20,18 +20,20 @@ import agence.web.reservationWS.ExceptionGetReference_Exception;
 import agence.web.reservationWS.HotelServiceReservationImplService;
 import agence.web.reservationWS.IHotelServiceReservation;
 import agence.web.reservationWS.InfosPersonnes;
+import agence.web.service.main.ReservationMain;
 
 @WebService(endpointInterface = "agence.web.service.client.IAgenceServiceUtilisateur")
 public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 
 	public ArrayList<Agence> lstAgences;
+	public int resID;
 	
 	public AgenceServiceUtilisateurImpl(ArrayList<Agence> agences) {
 		this.lstAgences = agences;
 	}
 	
 	@Override
-	public int Reservation(String nameAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
+	public float Reservation(String nameAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
 		
 		URL url;
 		Agence agence = new Agence();
@@ -53,8 +55,10 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 					continue;
 				}
 			}
-			proxy.reservationValide(agence.getIdentifiant(), agence.getLogin(), agence.getMotdepasse(), identifiantOffre, infos, dateDebutGC, dateFinGC);
-			return proxy.getReference();
+
+			float prix = proxy.reservationValide(agence.getIdentifiant(), agence.getLogin(), agence.getMotdepasse(), identifiantOffre, infos, dateDebutGC, dateFinGC);
+			resID = proxy.getReference();
+			return prix;
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -104,5 +108,10 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 			names.add(a.getLogin());
 		}
 		return names;
+	}
+
+	@Override
+	public int getReferenceResa() {
+		return resID;
 	}
 }

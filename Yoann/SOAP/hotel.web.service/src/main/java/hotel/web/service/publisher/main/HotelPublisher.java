@@ -10,6 +10,7 @@ import javax.xml.ws.Endpoint;
 import hotel.web.service.model.Agence;
 import hotel.web.service.model.Hotel;
 import hotel.web.service.model.Offre;
+import hotel.web.service.model.InfosPersonnes;
 import hotel.web.service.services.HotelServiceConsultImpl;
 import hotel.web.service.services.HotelServiceReservationImpl;
 
@@ -19,13 +20,12 @@ public class HotelPublisher {
 		
 		ArrayList<Hotel> hotels = getHotels();
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-
+//
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));
 		Endpoint.publish("http://localhost:8080/hotelservicereservation", new HotelServiceReservationImpl(hotels));
-
-		
-//		HotelServiceConsultImpl hsci = new HotelServiceConsultImpl(hotels);		
-//		System.out.println(hsci.getListeOffres(3213, "password", "Nice", 10000, df.parse("18-11-2022"),df.parse("22-11-2022"), 3));
+		InfosPersonnes ip = new InfosPersonnes();
+		HotelServiceConsultImpl hsci = new HotelServiceConsultImpl(hotels);		
+		HotelServiceReservationImpl hsri = new HotelServiceReservationImpl(hotels);
 		
 		System.err.println("WS Hotel is ready");
 

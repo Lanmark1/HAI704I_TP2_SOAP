@@ -13,7 +13,7 @@ import hotel.web.service.model.InfosPersonnes;
 public interface IHotelServiceReservation {
 
 	@WebMethod
-	public Boolean reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin);
+	public float reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin);
 
 	@WebMethod
 	public int getReference() throws ExceptionGetReference;

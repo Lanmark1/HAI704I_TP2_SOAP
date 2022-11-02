@@ -53,14 +53,14 @@ public interface IHotelServiceReservation {
      * @param arg0
      * @param arg6
      * @return
-     *     returns java.lang.Boolean
+     *     returns float
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "reservationValide", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.reservationWS.ReservationValide")
     @ResponseWrapper(localName = "reservationValideResponse", targetNamespace = "http://services.service.web.hotel/", className = "agence.web.reservationWS.ReservationValideResponse")
     @Action(input = "http://services.service.web.hotel/IHotelServiceReservation/reservationValideRequest", output = "http://services.service.web.hotel/IHotelServiceReservation/reservationValideResponse")
-    public Boolean reservationValide(
+    public float reservationValide(
         @WebParam(name = "arg0", targetNamespace = "")
         int arg0,
         @WebParam(name = "arg1", targetNamespace = "")

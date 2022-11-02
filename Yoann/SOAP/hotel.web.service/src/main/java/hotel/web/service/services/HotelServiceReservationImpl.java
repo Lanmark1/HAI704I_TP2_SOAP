@@ -23,7 +23,7 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 	}
 	
 	@WebMethod
-	public Boolean reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin) {
+	public float reservationValide(int identifiantAgence, String login, String password, int identifiantOffre, InfosPersonnes infosPersonne, Date dateDebut, Date dateFin) {
 
 		Hotel hotel = null;
 		
@@ -39,12 +39,8 @@ public class HotelServiceReservationImpl implements IHotelServiceReservation {
 		// Si une réservation n'est pas existante alors je réserve ( on ne teste pas le cas où la date n'est pas disponible
 		// car on a fourni les chambres répondant au dispo de l'utilisateur
 		
-		if(res == null) {
-			res = new Reservation(hotel, identifiantAgence, identifiantOffre, infosPersonne, dateDebut, dateFin);
-			return true;
-		}
-		
-		return false;
+		res = new Reservation(hotel, identifiantAgence, identifiantOffre, infosPersonne, dateDebut, dateFin);
+		return res.getPrix();
 	}
 	
 	@WebMethod

@@ -35,7 +35,7 @@ public interface IAgenceServiceUtilisateur {
      * @param arg1
      * @param arg0
      * @return
-     *     returns int
+     *     returns float
      * @throws ParseException_Exception
      * @throws DatatypeConfigurationException_Exception
      * @throws ExceptionGetReferenceException
@@ -49,7 +49,7 @@ public interface IAgenceServiceUtilisateur {
         @FaultAction(className = DatatypeConfigurationException_Exception.class, value = "http://client.service.web.agence/IAgenceServiceUtilisateur/Reservation/Fault/DatatypeConfigurationException"),
         @FaultAction(className = ExceptionGetReferenceException.class, value = "http://client.service.web.agence/IAgenceServiceUtilisateur/Reservation/Fault/ExceptionGetReference_Exception")
     })
-    public int reservation(
+    public float reservation(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")
@@ -109,5 +109,17 @@ public interface IAgenceServiceUtilisateur {
     @ResponseWrapper(localName = "getAgenceNamesResponse", targetNamespace = "http://client.service.web.agence/", className = "client.consumer.service.GetAgenceNamesResponse")
     @Action(input = "http://client.service.web.agence/IAgenceServiceUtilisateur/getAgenceNamesRequest", output = "http://client.service.web.agence/IAgenceServiceUtilisateur/getAgenceNamesResponse")
     public List<String> getAgenceNames();
+
+    /**
+     * 
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getReferenceResa", targetNamespace = "http://client.service.web.agence/", className = "client.consumer.service.GetReferenceResa")
+    @ResponseWrapper(localName = "getReferenceResaResponse", targetNamespace = "http://client.service.web.agence/", className = "client.consumer.service.GetReferenceResaResponse")
+    @Action(input = "http://client.service.web.agence/IAgenceServiceUtilisateur/getReferenceResaRequest", output = "http://client.service.web.agence/IAgenceServiceUtilisateur/getReferenceResaResponse")
+    public int getReferenceResa();
 
 }

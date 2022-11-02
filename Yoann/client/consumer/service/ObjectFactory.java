@@ -33,6 +33,8 @@ public class ObjectFactory {
     private final static QName _ReservationResponse_QNAME = new QName("http://client.service.web.agence/", "ReservationResponse");
     private final static QName _GetAgenceNames_QNAME = new QName("http://client.service.web.agence/", "getAgenceNames");
     private final static QName _GetAgenceNamesResponse_QNAME = new QName("http://client.service.web.agence/", "getAgenceNamesResponse");
+    private final static QName _GetReferenceResa_QNAME = new QName("http://client.service.web.agence/", "getReferenceResa");
+    private final static QName _GetReferenceResaResponse_QNAME = new QName("http://client.service.web.agence/", "getReferenceResaResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: client.consumer.service
@@ -135,6 +137,22 @@ public class ObjectFactory {
      */
     public GetAgenceNamesResponse createGetAgenceNamesResponse() {
         return new GetAgenceNamesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetReferenceResa }
+     * 
+     */
+    public GetReferenceResa createGetReferenceResa() {
+        return new GetReferenceResa();
+    }
+
+    /**
+     * Create an instance of {@link GetReferenceResaResponse }
+     * 
+     */
+    public GetReferenceResaResponse createGetReferenceResaResponse() {
+        return new GetReferenceResaResponse();
     }
 
     /**
@@ -252,6 +270,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getAgenceNamesResponse")
     public JAXBElement<GetAgenceNamesResponse> createGetAgenceNamesResponse(GetAgenceNamesResponse value) {
         return new JAXBElement<GetAgenceNamesResponse>(_GetAgenceNamesResponse_QNAME, GetAgenceNamesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResa }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetReferenceResa }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getReferenceResa")
+    public JAXBElement<GetReferenceResa> createGetReferenceResa(GetReferenceResa value) {
+        return new JAXBElement<GetReferenceResa>(_GetReferenceResa_QNAME, GetReferenceResa.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResaResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link GetReferenceResaResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getReferenceResaResponse")
+    public JAXBElement<GetReferenceResaResponse> createGetReferenceResaResponse(GetReferenceResaResponse value) {
+        return new JAXBElement<GetReferenceResaResponse>(_GetReferenceResaResponse_QNAME, GetReferenceResaResponse.class, null, value);
     }
 
 }
