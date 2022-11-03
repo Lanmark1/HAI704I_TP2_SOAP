@@ -50,9 +50,9 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	private JTextField dateArrivee;
 	private JTextField dateDepart;
 	private DefaultTableModel model;
-	JComboBox<String> comboBox;
-	JComboBox<String> comboBox_1;
+	JComboBox<String> comboBoxEtoile;
 	JComboBox<String> comboBoxAgences;
+	JComboBox<String> comboBoxLit;
 
 //	ArrayList<Animal> cab;
 
@@ -72,7 +72,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	private JTextField prixMaximum_1;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JToggleButton tglbtnSupprimer;
+	private JToggleButton tglbtnReservez;
 	/**
 	 * Launch the application.
 	 * @throws RemoteException 
@@ -80,13 +80,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	 * @throws MalformedURLException 
 	 */
 	public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
-	
-	
-		
-		// On suppose le cabinet déjà créer
-			// On demande d'ajouter un animal 
-		
-		
+			
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -112,10 +106,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	 * @throws MalformedURLException 
 	 */
 	public InterfaceGUI() throws RemoteException, NotBoundException, MalformedURLException {
-	
-		
-		
-		
+			
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100,100,1200,600);
@@ -127,32 +118,43 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		lblNomVille.setBounds(12, 28, 144, 15);
 		contentPane.add(lblNomVille);
 
-		JLabel lblNomAnimal_1_1 = new JLabel("Nombre d'étoiles : ");
-		lblNomAnimal_1_1.setBounds(12, 63, 144, 15);
-		contentPane.add(lblNomAnimal_1_1);
 		
-		comboBox = new JComboBox<String>();
-		comboBox.addItem("");
-		comboBox.addItem("2");
-		comboBox.addItem("3");
-		comboBox.addItem("4");
-		comboBox.addItem("5");
-		comboBox.setBounds(174, 58, 69, 24);
+		JLabel lblEtoile = new JLabel("Nombre d'étoiles : ");
+		lblEtoile.setBounds(12, 63, 144, 15);
+		contentPane.add(lblEtoile);
+		
+		comboBoxEtoile = new JComboBox<String>();
+		comboBoxEtoile.addItem("");
+		for (int i = 1; i < 6 ; i++) {			
+			comboBoxEtoile.addItem(String.valueOf(i));
+		}
+		comboBoxEtoile.setBounds(174, 58, 69, 24);
 //		comboBox.addItemListener(this);
-		contentPane.add(comboBox);
+		contentPane.add(comboBoxEtoile);
+
+		JLabel lblLit = new JLabel("Nombre de lits : ");
+		lblLit.setBounds(12, 143, 144, 15);
+		contentPane.add(lblLit);
 		
+		comboBoxLit = new JComboBox<String>();
+		comboBoxLit.addItem("");
+		for (int i = 1; i < 11 ; i++) {			
+			comboBoxLit.addItem(String.valueOf(i));
+		}
+		comboBoxLit.setBounds(174, 140, 69, 24);
+		contentPane.add(comboBoxLit);
 		
-		JLabel lblNomAnimal_1_1_1 = new JLabel("Prix maximum : ");
-		lblNomAnimal_1_1_1.setBounds(10, 105, 144, 15);
-		contentPane.add(lblNomAnimal_1_1_1);
+		JLabel lblPrixMax = new JLabel("Prix maximum : ");
+		lblPrixMax.setBounds(12, 105, 144, 15);
+		contentPane.add(lblPrixMax);
 		
-		JLabel lblDateArrivee = new JLabel("Date de départ : ");
-		lblDateArrivee.setBounds(492, 63, 144, 15);
+		JLabel lblDateDepart = new JLabel("Date de départ : ");
+		lblDateDepart.setBounds(492, 63, 144, 15);
+		contentPane.add(lblDateDepart);
+		
+		JLabel lblDateArrivee = new JLabel("Date d'arrivée : ");
+		lblDateArrivee.setBounds(492, 28, 144, 15);
 		contentPane.add(lblDateArrivee);
-		
-		JLabel lblNomAnimal_1_1_1_1 = new JLabel("Date d'arrivée : ");
-		lblNomAnimal_1_1_1_1.setBounds(492, 28, 144, 15);
-		contentPane.add(lblNomAnimal_1_1_1_1);
 		
 		nomVille = new JTextField();
 		nomVille.addActionListener(this);
@@ -161,24 +163,17 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		nomVille.setColumns(10);
 		                                  
 		
-		tglbtnSupprimer = new JToggleButton("Reserver");
-		tglbtnSupprimer.addActionListener(this);
-		tglbtnSupprimer.setBounds(150, 182, 123, 25);
-		contentPane.add(tglbtnSupprimer);
-		tglbtnSupprimer.setVisible(false);
-		
-		
-	
-		
-		
+		tglbtnReservez = new JToggleButton("Reserver");
+		tglbtnReservez.addActionListener(this);
+		tglbtnReservez.setBounds(150, 182, 123, 25);
+		contentPane.add(tglbtnReservez);
+		tglbtnReservez.setVisible(false);
 		
 		JToggleButton tglbtnValidez_1 = new JToggleButton("Validez");
 		tglbtnValidez_1.addActionListener(this);
 		tglbtnValidez_1.setBounds(31, 182, 86, 25);
 		contentPane.add(tglbtnValidez_1);
-		
-		
-		
+				
 		model = new DefaultTableModel(header,0);
 		
 		table = new JTable(model) {
@@ -211,18 +206,18 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		dateDepart.setBounds(654, 60, 151, 19);
 		contentPane.add(dateDepart);
 		
-		comboBox_1 = new JComboBox<String>();
-		comboBox_1.addItem("");
+		comboBoxAgences = new JComboBox<String>();
+		comboBoxAgences.addItem("");
 		
 		for (String s : proxy.getAgenceNames()) {
-			comboBox_1.addItem(s);
+			comboBoxAgences.addItem(s);
 		}
-		comboBox_1.setBounds(654, 105, 151, 24);
-		contentPane.add(comboBox_1);
+		comboBoxAgences.setBounds(654, 105, 151, 24);
+		contentPane.add(comboBoxAgences);
 		
-		JLabel lblDateArrivee_1 = new JLabel("Agence : ");
-		lblDateArrivee_1.setBounds(492, 105, 144, 15);
-		contentPane.add(lblDateArrivee_1);
+		JLabel lblAgence = new JLabel("Agence : ");
+		lblAgence.setBounds(492, 105, 144, 15);
+		contentPane.add(lblAgence);
 	
 	}
 
@@ -234,10 +229,13 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		String command = e.getActionCommand(); 
 		if(command.equals("Validez")) {
 				
-				String agenceName = String.valueOf(comboBox.getSelectedItem()).trim();
-
-			
-				if(!agenceName.equals("") && !prixMaximum.getText().trim().equals("") && !dateArrivee.getText().equals("") && !dateDepart.getText().equals("") && !nomVille.getText().equals("")) {
+				String agenceName = String.valueOf(comboBoxAgences.getSelectedItem()).trim();
+				String nbEtoiles = String.valueOf(comboBoxEtoile.getSelectedItem()).trim();
+				String nbLits = String.valueOf(comboBoxLit.getSelectedItem()).trim();
+				
+				if(!agenceName.equals("") && !prixMaximum.getText().trim().equals("") && 
+						!dateArrivee.getText().equals("") && !dateDepart.getText().equals("") && 
+						!nomVille.getText().equals("") && !nbEtoiles.equals("") && !nbLits.equals("")) {
 				
 			
 				ArrayList<Offre> lstOffres = new ArrayList<>();
@@ -245,9 +243,8 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				
 				model.setRowCount(row);
 				
-				String x = String.valueOf(comboBox.getSelectedItem()).trim();
-				int etoiles = Integer.parseInt(x);
-				
+				int etoiles = Integer.parseInt(nbEtoiles);
+				int lits = Integer.parseInt(nbLits);
 
 				int prix =  Integer.parseInt(prixMaximum.getText().trim());
 				
@@ -263,7 +260,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					e2.printStackTrace();
 				}
 				
-				try {
+				try { // TODO: rajouter nombre de lits en paramètres dans consultationOffre
 					XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
 					XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
 					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC);
@@ -274,10 +271,10 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 						}
 
 				if(!lstOffres.isEmpty()) {
-					tglbtnSupprimer.setVisible(true);
+					tglbtnReservez.setVisible(true);
 				}
 				else {
-					tglbtnSupprimer.setVisible(false);
+					tglbtnReservez.setVisible(false);
 				}
 				} catch (DatatypeConfigurationException e1) {
 					e1.printStackTrace();
@@ -285,32 +282,10 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-//
-//				
-				
-//				model.addRow(new Object[] { nomAnimal.getText(), nomMaitre.getText()});
 
-//				
-//				if(!nomAnimal.getText().equals("") && !nomMaitre.getText().equals("") && !espece.equals("") && !nomRace.getText().equals("") && !etatSante.getText().equals("") && !cabinet.animalExists(nomAnimal.getText(), nomMaitre.getText())) {
-//				cabinet.addAnimal(nomAnimal.getText(), nomMaitre.getText(), espece, nomRace.getText(), etatSante.getText());
-//				
-//				model.addRow(new Object[] { nomAnimal.getText(), nomMaitre.getText()});
-//				
-//				
-//				lbltaillecabinet.setText("Nombre d'animaux : " + cabinet.size());
-//				JOptionPane.showMessageDialog(null, "Vous venez d'ajouter un animal");
-//				if(cabinet.size() > 30) {
-//					lbltaillecabinet.setForeground(Color.red);
-//					JOptionPane.showMessageDialog(null, "Votre cabinet contient plus de 30 animaux");
-//				}
-//				}
-//				else{
-//					JOptionPane.showMessageDialog(null, "Vous n'avez pas saisis tous les champs ou vous avez voulu insérer un animal déjà existant");
-//				}
-//			
 		
 				}else {
-					JOptionPane.showMessageDialog(null, "Vous n'avez pas saisis tous les champs.");
+					JOptionPane.showMessageDialog(null, "Vous n'avez pas saisi tous les champs.");
 				}
 		}
 		
@@ -318,7 +293,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 			if(!table.getSelectionModel().isSelectionEmpty()) {
 			
 			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
-			String agenceName = String.valueOf(comboBox_1.getSelectedItem()).trim();
+			String agenceName = String.valueOf(comboBoxAgences.getSelectedItem()).trim();
 			
 			JTextField nom = new JTextField();
 			JTextField numero = new JTextField();
