@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -37,6 +38,7 @@ import client.consumer.service.ExceptionGetReferenceException;
 import client.consumer.service.IAgenceServiceUtilisateur;
 import client.consumer.service.InfosPersonnes;
 import client.consumer.service.Offre;
+import client.consumer.service.Paiement;
 import client.consumer.service.ParseException_Exception;
 
 
@@ -314,10 +316,35 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		
 		if(command.equals("Reserver")) {
 			if(!table.getSelectionModel().isSelectionEmpty()) {
+			
 			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
-			System.out.println(identifiant);
 			String agenceName = String.valueOf(comboBox_1.getSelectedItem()).trim();
-			InfosPersonnes ip = new InfosPersonnes();
+			
+			JTextField nom = new JTextField();
+			JTextField numero = new JTextField();
+			JTextField cvv = new JTextField();
+			JTextField dateExpiration = new JTextField();
+			
+			
+			Object[] message = {
+				    "Nom : ", nom,
+				    "Numero carte : ", numero,
+				    "Date expiration : ", dateExpiration,
+				    "CVV : ", cvv
+				};
+			int option = 0;
+			do {
+			option = JOptionPane.showConfirmDialog(null, message, "Paiement", JOptionPane.OK_CANCEL_OPTION);
+			} while (cvv.getText().equals("") && dateExpiration.getText().equals("") && numero.getText().equals("") && option == 0);
+		
+			if(option != 0) {
+				JOptionPane.showMessageDialog(null,"Vous venez d'annuler votre réservation");
+				return;
+			}
+			Paiement paiement = new Paiement(Integer.parseInt(cvv.getText().trim()), dateExpiration.getText().trim(), numero.getText().trim());
+			InfosPersonnes ip = new InfosPersonnes(nom.getText().trim(), paiement);
+			
+		
 			GregorianCalendar dateArriveeGC = new GregorianCalendar();
 			GregorianCalendar dateDepartGC = new GregorianCalendar();
 			try {
@@ -351,4 +378,5 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null,"Veuillez séléctionner une offre dans la table ");
 			}
 		}
-}}
+	}
+}
