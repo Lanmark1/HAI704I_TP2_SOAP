@@ -38,16 +38,15 @@ public class Agence {
     protected int identifiant;
     protected String login;
     protected String motdepasse;
-
+   
+    public Agence() {}
+    
+    
     public Agence(int i, String string, String string2) {
     	this.identifiant = i;
     	this.login = string;
     	this.motdepasse = string2;
     }
-
-	public Agence() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
      * Obtient la valeur de la propriété identifiant.

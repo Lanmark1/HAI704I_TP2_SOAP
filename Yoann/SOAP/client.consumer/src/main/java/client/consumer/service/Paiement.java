@@ -41,13 +41,13 @@ public class Paiement {
 
     public Paiement() {}
     
-    public Paiement (int cvv, String date, String numero) {
-    	this.cvv = cvv;
-    	this.dateExpiration = date;
-    	this.numeroCarte = numero;
+    public Paiement(int parseInt, String trim, String trim2) {
+    	this.cvv = parseInt;
+    	this.dateExpiration = trim;
+    	this.numeroCarte = trim2;
     }
-    
-    /**
+
+	/**
      * Obtient la valeur de la propriété cvv.
      * 
      */

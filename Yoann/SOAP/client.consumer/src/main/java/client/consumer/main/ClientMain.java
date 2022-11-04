@@ -33,7 +33,7 @@ public class ClientMain {
 		c.setTime(df.parse("31-12-2023"));
 		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
 
-		System.out.println(proxy.consultationOffre("Agence1", 150, "Montpellier", 3, date2, date2).get(0).getIdentifiant());
+		System.out.println(proxy.consultationOffre("Agence1", 150, "Montpellier", 3, date2, date2,3).get(0).getIdentifiant());
 		System.out.println(proxy.reservation("Agence2", ip, 2, date2, date2));
 	}
 

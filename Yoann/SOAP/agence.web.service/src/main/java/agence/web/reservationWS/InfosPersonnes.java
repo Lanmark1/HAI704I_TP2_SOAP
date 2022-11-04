@@ -36,14 +36,12 @@ public class InfosPersonnes {
     protected String nom;
     protected Paiement paiement;
 
+    public InfosPersonnes() {}
+    
     public InfosPersonnes(String string, Paiement p1) {
     	this.nom = string;
     	this.paiement = p1;
     }
-
-	public InfosPersonnes() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
      * Obtient la valeur de la propriété nom.

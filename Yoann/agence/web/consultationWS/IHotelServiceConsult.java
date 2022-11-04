@@ -34,6 +34,7 @@ public interface IHotelServiceConsult {
      * @param arg4
      * @param arg1
      * @param arg0
+     * @param arg7
      * @param arg6
      * @return
      *     returns java.util.List<agence.web.consultationWS.Offre>
@@ -57,7 +58,9 @@ public interface IHotelServiceConsult {
         @WebParam(name = "arg5", targetNamespace = "")
         XMLGregorianCalendar arg5,
         @WebParam(name = "arg6", targetNamespace = "")
-        int arg6);
+        int arg6,
+        @WebParam(name = "arg7", targetNamespace = "")
+        int arg7);
 
     /**
      * 

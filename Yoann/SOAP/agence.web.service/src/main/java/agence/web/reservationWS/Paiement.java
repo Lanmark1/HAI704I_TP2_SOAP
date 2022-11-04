@@ -39,14 +39,12 @@ public class Paiement {
     protected String dateExpiration;
     protected String numeroCarte;
 
+    public Paiement() {}
+    
     public Paiement(int i, String string, String string2) {
-    	this.cvv = i;
-    	this.dateExpiration = string;
-    	this.numeroCarte = string2;
-    }
-
-	public Paiement() {
-		// TODO Auto-generated constructor stub
+		this.cvv = i;
+		this.dateExpiration = string;
+		this.numeroCarte = string2;
 	}
 
 	/**

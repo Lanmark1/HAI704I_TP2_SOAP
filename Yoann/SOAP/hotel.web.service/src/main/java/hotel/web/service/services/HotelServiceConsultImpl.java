@@ -22,7 +22,7 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 	}	
 	
 	@WebMethod
-	public ArrayList<Offre> getListeOffres(int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes) {	
+	public ArrayList<Offre> getListeOffres(int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes, int nbrEtoiles) {	
 		
 		if(!lstOffre.isEmpty()) {
 			lstOffre.clear();
@@ -48,6 +48,7 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 			}
 			
 			if(h.getVille().equals(ville)) {
+				if(h.getEtoiles() >= nbrEtoiles) {
 				for (Offre e : h.getListeChambres()) {
 					if(e.getPrix() <= prix) {
 						if(e.getDateDispo().before(DateDebut)) {
@@ -61,7 +62,7 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 				}
 			}	
 		}
-		
+		}
 		return lstOffre;
 }
 	

@@ -31,7 +31,7 @@ public class ConsultationMain {
 //		System.out.println(proxy.getHotelsService());
 		XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
 //		System.out.println(proxy.getListeOffres(15051, "Nice", date2 ,date2, 3));
-		System.out.println(proxy.getListeOffres(15051, "Password", "Nice", 1000, date2 ,date2, 3));
+		System.out.println(proxy.getListeOffres(15051, "Password", "Nice", 1000, date2 ,date2, 3, 3));
 //		int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes
 	}
 

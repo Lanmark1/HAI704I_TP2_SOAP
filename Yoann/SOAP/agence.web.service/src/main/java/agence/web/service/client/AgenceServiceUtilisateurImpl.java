@@ -94,7 +94,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 				}
 			}
 			
-			return (ArrayList<Offre>) proxy.getListeOffres(agence.getIdentifiant(), agence.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrPersonnes);
+			return (ArrayList<Offre>) proxy.getListeOffres(agence.getIdentifiant(), agence.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrPersonnes, nbrEtoiles);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

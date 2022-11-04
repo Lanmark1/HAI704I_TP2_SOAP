@@ -25,6 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="arg4" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="arg5" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
  *         &lt;element name="arg6" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="arg7" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -41,7 +42,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "arg3",
     "arg4",
     "arg5",
-    "arg6"
+    "arg6",
+    "arg7"
 })
 public class GetListeOffres {
 
@@ -54,6 +56,7 @@ public class GetListeOffres {
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar arg5;
     protected int arg6;
+    protected int arg7;
 
     /**
      * Obtient la valeur de la propriété arg0.
@@ -197,6 +200,22 @@ public class GetListeOffres {
      */
     public void setArg6(int value) {
         this.arg6 = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété arg7.
+     * 
+     */
+    public int getArg7() {
+        return arg7;
+    }
+
+    /**
+     * Définit la valeur de la propriété arg7.
+     * 
+     */
+    public void setArg7(int value) {
+        this.arg7 = value;
     }
 
 }

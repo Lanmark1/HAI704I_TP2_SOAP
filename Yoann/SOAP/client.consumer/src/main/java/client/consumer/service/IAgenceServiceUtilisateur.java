@@ -36,8 +36,8 @@ public interface IAgenceServiceUtilisateur {
      * @param arg0
      * @return
      *     returns float
-     * @throws ParseException_Exception
      * @throws DatatypeConfigurationException_Exception
+     * @throws ParseException_Exception
      * @throws ExceptionGetReferenceException
      */
     @WebMethod(operationName = "Reservation")
@@ -71,6 +71,7 @@ public interface IAgenceServiceUtilisateur {
      * @param arg4
      * @param arg1
      * @param arg0
+     * @param arg6
      * @return
      *     returns java.util.List<client.consumer.service.Offre>
      * @throws DatatypeConfigurationException_Exception
@@ -94,7 +95,9 @@ public interface IAgenceServiceUtilisateur {
         @WebParam(name = "arg4", targetNamespace = "")
         XMLGregorianCalendar arg4,
         @WebParam(name = "arg5", targetNamespace = "")
-        XMLGregorianCalendar arg5)
+        XMLGregorianCalendar arg5,
+        @WebParam(name = "arg6", targetNamespace = "")
+        int arg6)
         throws DatatypeConfigurationException_Exception
     ;
 
