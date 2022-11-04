@@ -68,7 +68,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	}
 
 	@Override
-	public ArrayList<Offre> ConsultationOffre(String nameAgence, float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin) throws DatatypeConfigurationException {
+	public ArrayList<Offre> ConsultationOffre(String nameAgence, float prix, String ville, int nbrEtoiles, Date dateDebut, Date dateFin, int nbrPersonnes) throws DatatypeConfigurationException {
 		
 		URL url;
 		Agence agence = new Agence();
@@ -94,7 +94,7 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 				}
 			}
 			
-			return (ArrayList<Offre>) proxy.getListeOffres(agence.getIdentifiant(), agence.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrEtoiles);
+			return (ArrayList<Offre>) proxy.getListeOffres(agence.getIdentifiant(), agence.getMotdepasse(), ville , prix, dateDebutGC, dateFinGC, nbrPersonnes);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

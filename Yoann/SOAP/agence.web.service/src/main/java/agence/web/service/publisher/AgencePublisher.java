@@ -16,9 +16,9 @@ public class AgencePublisher {
 
 	public static void main(String[] args) throws DatatypeConfigurationException, ParseException {
 		
-		Agence nomAgence1 = new Agence(34763, "Agence1", "PasswordAgence1");
-		Agence nomAgence2 = new Agence(57500, "Agence2", "PasswordAgence2");
-		Agence nomAgence3 = new Agence(13094, "Agence3", "PasswordAgence3");
+		Agence nomAgence1 = new Agence(34763, "Trivallez", "PasswordTrivallez");
+		Agence nomAgence2 = new Agence(57500, "Hotel.gouv", "PasswordHotel.gouv");
+		Agence nomAgence3 = new Agence(13094, "TripConseiller", "PasswordTripConseiller");
 		
 		ArrayList<Agence> lstAgence = new ArrayList<>();
 		

@@ -263,13 +263,17 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				try { // TODO: rajouter nombre de lits en paramètres dans consultationOffre
 					XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
 					XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
-					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC);
+					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC,lits);
 					
 					for (Offre o : lstOffres) {
 						model.addRow(new Object[]
-								{ nomVille.getText(), o.getIdentifiant(), o.getPrix(), 3});
+								{ nomVille.getText(), o.getIdentifiant(), o.getPrix(),3});
 						}
-
+				
+//					for (Object o : model.) {
+//						
+//					}
+						
 				if(!lstOffres.isEmpty()) {
 					tglbtnReservez.setVisible(true);
 				}
