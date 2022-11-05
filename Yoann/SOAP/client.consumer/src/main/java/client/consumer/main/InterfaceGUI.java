@@ -40,6 +40,7 @@ import client.consumer.service.InfosPersonnes;
 import client.consumer.service.Offre;
 import client.consumer.service.Paiement;
 import client.consumer.service.ParseException_Exception;
+import client.consumer.service.Reservation;
 
 
 public class InterfaceGUI extends JFrame implements ActionListener {
@@ -50,9 +51,11 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	private JTextField dateArrivee;
 	private JTextField dateDepart;
 	private DefaultTableModel model;
+	JToggleButton tgbltnHistorique;
 	JComboBox<String> comboBoxEtoile;
 	JComboBox<String> comboBoxAgences;
 	JComboBox<String> comboBoxLit;
+	ArrayList<Integer> lstReservations = new ArrayList<>();
 
 //	ArrayList<Animal> cab;
 
@@ -107,6 +110,8 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	 */
 	public InterfaceGUI() throws RemoteException, NotBoundException, MalformedURLException {
 			
+		
+		
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100,100,1200,600);
@@ -122,6 +127,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		JLabel lblEtoile = new JLabel("Nombre d'étoiles : ");
 		lblEtoile.setBounds(12, 63, 144, 15);
 		contentPane.add(lblEtoile);
+		
 		
 		comboBoxEtoile = new JComboBox<String>();
 		comboBoxEtoile.addItem("");
@@ -218,6 +224,17 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		JLabel lblAgence = new JLabel("Agence : ");
 		lblAgence.setBounds(492, 105, 144, 15);
 		contentPane.add(lblAgence);
+		
+		tgbltnHistorique = new JToggleButton("Historique de vos réservations");
+		tgbltnHistorique.setBounds(654, 169, 214, 51);
+		tgbltnHistorique.addActionListener(this);
+		contentPane.add(tgbltnHistorique);
+		tgbltnHistorique.setVisible(false);
+		
+		if(lstReservations.size()>0) {
+			tgbltnHistorique.setVisible(true);
+		}
+		
 	
 	}
 
@@ -292,6 +309,24 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(null, "Vous n'avez pas saisi tous les champs.");
 				}
 		}
+			
+		if(command.equals("Historique de vos réservations")) {
+			
+			String message = "";
+			
+			if(lstReservations.size() == 1) {
+				JOptionPane.showMessageDialog(null,lstReservations.get(0));
+			}
+			else {
+			for (int i = 0; i<lstReservations.size();i++) {
+				message = message + lstReservations.get(i) + ", ";
+			}
+			JOptionPane.showMessageDialog(null,message);
+			}
+		
+			
+			
+		}
 		
 		if(command.equals("Reserver")) {
 			if(!table.getSelectionModel().isSelectionEmpty()) {
@@ -343,6 +378,10 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				
 			
 				JOptionPane.showMessageDialog(null,"Vous venez de payer : " + proxy.reservation(agenceName, ip, identifiant, dateArriveeXMLGC, dateDepartXMLGC) + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+				tgbltnHistorique.setVisible(true);
+
+				lstReservations.add(proxy.getReferenceResa());
+				System.out.println(lstReservations);
 				if(table.getSelectedRow() != -1) {
 		               
 		               model.removeRow(table.getSelectedRow());
