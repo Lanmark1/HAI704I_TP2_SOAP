@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.NotBoundException;
@@ -15,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,6 +33,8 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -46,6 +54,8 @@ import client.consumer.service.Reservation;
 public class InterfaceGUI extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	private JLabel imageChambre;
+	private JLabel lblChambre;
 	private JTextField nomVille;
 	private JTextField prixMaximum;
 	private JTextField dateArrivee;
@@ -212,6 +222,18 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		dateDepart.setBounds(654, 60, 151, 19);
 		contentPane.add(dateDepart);
 		
+		
+		lblChambre = new JLabel("Image de la chambre :");
+		lblChambre.setBounds(654, 160, 144, 15);
+		contentPane.add(lblChambre);
+		lblChambre.setVisible(false);
+		
+		imageChambre = new JLabel();
+		imageChambre.setBounds(654, 180, 120, 120);
+		imageChambre.setSize(120, 120);
+		contentPane.add(imageChambre);
+		imageChambre.setVisible(false);
+		
 		comboBoxAgences = new JComboBox<String>();
 		comboBoxAgences.addItem("");
 		
@@ -255,8 +277,8 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 						!nomVille.getText().equals("") && !nbEtoiles.equals("") && !nbLits.equals("")) {
 				
 			
-				ArrayList<Offre> lstOffres = new ArrayList<>();
-				lstOffres.clear();
+				final ArrayList<Offre> lstOffres;// = new ArrayList<>();
+				//lstOffres.clear();
 				
 				model.setRowCount(row);
 				
@@ -277,7 +299,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					e2.printStackTrace();
 				}
 				
-				try { // TODO: rajouter nombre de lits en paramètres dans consultationOffre
+				try { 
 					XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
 					XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
 					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC,lits);
@@ -286,6 +308,53 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 						model.addRow(new Object[]
 								{ nomVille.getText(), o.getIdentifiant(), o.getPrix(),3});
 						}
+					
+					table.addMouseListener(new MouseListener() {
+
+//						Offre chambre = lstOffres.get(table.getSelectedRow());
+						@Override
+						public void mouseClicked(MouseEvent e) {
+//							System.out.println(lstOffres.get(table.getSelectedRow()));
+							BufferedImage imgCh = null;
+							
+							try {
+								imgCh = ImageIO.read(new URL("file:./src/main/java/client/consumer/main/room1.jpg"));
+							} catch (MalformedURLException e1) {
+								e1.printStackTrace();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+							imageChambre.setIcon(new ImageIcon(imgCh));
+							lblChambre.setVisible(true);
+							imageChambre.setVisible(true);
+						}
+
+						@Override
+						public void mousePressed(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+
+						@Override
+						public void mouseReleased(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+
+						@Override
+						public void mouseExited(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+					});
+						
 				
 //					for (Object o : model.) {
 //						
@@ -328,7 +397,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 			
 		}
 		
-		if(command.equals("Reserver")) {
+		if(command.equals("Réserver")) {
 			if(!table.getSelectionModel().isSelectionEmpty()) {
 			
 			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
@@ -379,7 +448,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				float prix = proxy.reservation(agenceName, ip, identifiant, dateArriveeXMLGC, dateDepartXMLGC); 
 			
 				if(prix < Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 2).toString())) {
-					JOptionPane.showMessageDialog(null,"Vous avez bénéficier d'une réduction grâce à votre agence ! Vous venez de payer : " + prix + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+					JOptionPane.showMessageDialog(null,"Vous avez bénéficié d'une réduction grâce à votre agence ! Vous venez de payer : " + prix + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Vous venez de payer : " + prix + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
@@ -398,7 +467,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 			}
 		}
 			else {
-				JOptionPane.showMessageDialog(null,"Veuillez séléctionner une offre dans la table ");
+				JOptionPane.showMessageDialog(null,"Veuillez sélectionner une offre dans la table ");
 			}
 		}
 	}
