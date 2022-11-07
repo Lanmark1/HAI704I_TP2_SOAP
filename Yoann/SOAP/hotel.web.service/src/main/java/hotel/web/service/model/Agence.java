@@ -9,12 +9,20 @@ public class Agence {
 	private String motdepasse;
 	private ArrayList<Hotel> hotelpartenaires;
 	
-	public Agence(int identifiant, String login, String motdepasse) {
+
+
+
+	public Agence(int identifiant, String login, String motdepasse, ArrayList<Hotel> hotels) {
 		this.setIdentifiant(identifiant);
 		this.setLogin(login);
 		this.setMotdepasse(motdepasse);
-		this.hotelpartenaires = new ArrayList<Hotel>();
+		this.hotelpartenaires = hotels;
+		for (Hotel h : hotels) {
+			h.addAgence(this);
+		}
 	}
+
+	
 
 	public int getIdentifiant() {
 		return identifiant;

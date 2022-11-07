@@ -17,9 +17,9 @@ public class Hotel {
 	private ArrayList<Offre> listeChambres;
 	private ArrayList<Agence> agencePartenaires;
 		
-	public Hotel() {};
+	public Hotel() {}
 	
-	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres, ArrayList<Agence> agencesPartenaire) {
+	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres) {
 		this.pays = pays;
 		this.ville = ville;
 		this.rue = rue;
@@ -28,20 +28,24 @@ public class Hotel {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.etoiles = etoiles;
+//		for (Offre o : listeChambres) {
+////			System.out.println(o);
+////			o.setHotel(this);
+//		}
+		
 		this.listeChambres = listeChambres;
-		this.agencePartenaires = agencesPartenaire;
-		for (Agence a : agencesPartenaire) {
-			a.addHotels(this);
-		}
-		for (Offre o : listeChambres) {
-			o.addHotels(this);
-		}
+		this.agencePartenaires = new ArrayList<Agence>();
+		
 	}
 
 	public String getPays() {
 		return pays;
 	}
 
+	public void addAgence(Agence a) {
+		this.agencePartenaires.add(a);
+	}
+	
 	public void setPays(String pays) {
 		this.pays = pays;
 	}

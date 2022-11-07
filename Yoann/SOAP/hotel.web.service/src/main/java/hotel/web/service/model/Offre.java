@@ -10,28 +10,37 @@ public class Offre {
 	private int nbrLits;
 	private Date dateDispo;
 	private int prix;
-	private ArrayList<Hotel> hotel;
-
+//	private ArrayList<Hotel> hotel;
+	private Hotel hotel;
+	
 	
 	public Offre() {}
 	
 	public Offre(int nbrLits, Date dateDispo, int prix) {
-
 		identifiant++;
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);
 		setPrix(prix);
-		this.hotel = new ArrayList<Hotel>();
+		hotel = new Hotel();
 	}
 
 	public int getIdentifiant() {
 		return identifiantOffre;
 	}
 	
-	public int getEtoiles() {
-		return hotel.get(0).getEtoiles();
+
+	public int getIdentifiantOffre() {
+		return identifiantOffre;
 	}
+
+	public void setIdentifiantOffre(int identifiantOffre) {
+		this.identifiantOffre = identifiantOffre;
+	}
+
+//	public void setHotel(ArrayList<Hotel> hotel) {
+//		this.hotel = hotel;
+//	}
 
 	public void setIdentifiant(int identifiant) {
 		this.identifiantOffre = identifiant;
@@ -45,12 +54,20 @@ public class Offre {
 		this.nbrLits = nbrLits;
 	}
 
-	public Hotel getHotel() {
-		return hotel.get(0);
-	}
+//	public ArrayList<Hotel> getHotel() {
+//		return hotel;
+//	}
 	
 	public Date getDateDispo() {
 		return dateDispo;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
 	public void setDateDispo(Date dateDispo) {
@@ -65,8 +82,11 @@ public class Offre {
 		this.prix = prix;
 	}
 
-	public void addHotels(Hotel hotel2) {
-		this.hotel.add(hotel2);
-		
-	}
+//	public void addHotels(Hotel hotel) {
+//		this.hotel.add(hotel);
+//		
+//	}
+	
+	
+	
 }

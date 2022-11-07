@@ -19,6 +19,8 @@ public class HotelPublisher {
 	public static void main(String[] args) throws Exception {
 		
 		ArrayList<Hotel> hotels = getHotels();
+		
+		System.out.println(hotels.get(0).getListeChambres());
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));
@@ -28,7 +30,7 @@ public class HotelPublisher {
 		HotelServiceReservationImpl hsri = new HotelServiceReservationImpl(hotels);
 		
 		System.err.println("WS Hotel is ready");
-
+		
 	}
 	
 	public static ArrayList<Hotel> getHotels() throws Exception{
@@ -46,11 +48,11 @@ public class HotelPublisher {
 		
 		// Initialisation de la liste des agences partenaires
 		
-		ArrayList<Agence> agencesPartenairesH1 = new ArrayList<Agence>();
-		ArrayList<Agence> agencesPartenairesH2 = new ArrayList<Agence>();
-		ArrayList<Agence> agencesPartenairesH3 = new ArrayList<Agence>();
-		ArrayList<Agence> agencesPartenairesH4 = new ArrayList<Agence>();
-		
+//		ArrayList<Agence> agencesPartenairesH1 = new ArrayList<Agence>();
+//		ArrayList<Agence> agencesPartenairesH2 = new ArrayList<Agence>();
+//		ArrayList<Agence> agencesPartenairesH3 = new ArrayList<Agence>();
+//		ArrayList<Agence> agencesPartenairesH4 = new ArrayList<Agence>();
+//		
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		
 		// Définitions des offres/chambres
@@ -64,6 +66,17 @@ public class HotelPublisher {
 		Offre of2h2 = new Offre(6, df.parse("05-10-2022"), 160 );
 		Offre of3h2 = new Offre(1, df.parse("13-10-2022"), 50 );
 		Offre of4h2 = new Offre(7, df.parse("04-10-2022"), 210 );
+		
+		Offre of1h3 = new Offre(4, df.parse("10-10-2022"), 110 );
+		Offre of2h3 = new Offre(6, df.parse("05-10-2022"), 160 );
+		Offre of3h3 = new Offre(1, df.parse("13-10-2022"), 50 );
+		Offre of4h3 = new Offre(7, df.parse("04-10-2022"), 210 );
+		
+		
+		Offre of1h4 = new Offre(4, df.parse("10-10-2022"), 110 );
+		Offre of2h4 = new Offre(6, df.parse("05-10-2022"), 160 );
+		Offre of3h4 = new Offre(1, df.parse("13-10-2022"), 50 );
+		Offre of4h4 = new Offre(7, df.parse("04-10-2022"), 210 );
 
 		offresH1.addAll(Arrays.asList(
 				of1h1,
@@ -78,45 +91,30 @@ public class HotelPublisher {
 				of4h2
 		));
 		offresH3.addAll(Arrays.asList(
-				of1h1,
-				of2h2,
-				of3h1,
-				of4h2
+				of1h3,
+				of2h3,
+				of3h3,
+				of4h3
 		));
 		offresH4.addAll(Arrays.asList(
-				of1h2,
-				of2h1,
-				of3h2,
-				of4h1
+				of1h4,
+				of2h4,
+				of3h4,
+				of4h4
 		));
 	
 		// Définitions des agences
-		
-		Agence agence1 = new Agence(34763, "Trivallez", "PasswordTrivallez");
-		Agence agence2 = new Agence(57500, "Hotel.gouv", "PasswordHotel.gouv");
-		Agence agence3 = new Agence(13094, "TripConseiller", "PasswordTripConseiller");
-		
+
 		// Ajout des agences aux listes d'agences partenaires 
-		
-		agencesPartenairesH1.addAll(Arrays.asList(
-				agence1,
-				agence2
-		));
-		
-		agencesPartenairesH2.addAll(Arrays.asList(
-				agence2,
-				agence3
-		));
-		
-		agencesPartenairesH3.add(agence1);
-		agencesPartenairesH4.add(agence3);
+
+
 		
 		// Défintions des hotels
 		
-		Hotel hotel1 = new Hotel("France", "Nice", "Rue de la tulipe", 12 , 6, 10, 40, 3, offresH1, agencesPartenairesH1);
-		Hotel hotel2 = new Hotel("France", "Montpellier", "Rue de la comedie", 13 , 34, 3, 30, 4, offresH2, agencesPartenairesH2);
-		Hotel hotel3 = new Hotel("France", "Paris", "Rue de Rivoli", 14 , 75, 20, 50, 2, offresH3, agencesPartenairesH3);
-		Hotel hotel4 = new Hotel("France", "Paris", "Rue Saint Dominique", 15 , 75, 22, 52, 5, offresH4, agencesPartenairesH4);
+		Hotel hotel1 = new Hotel("France", "Nice", "Rue de la tulipe", 12 , 6, 10, 40, 3, offresH1);
+		Hotel hotel2 = new Hotel("France", "Montpellier", "Rue de la comedie", 13 , 34, 3, 30, 4, offresH2);
+		Hotel hotel3 = new Hotel("France", "Paris", "Rue de Rivoli", 14 , 75, 20, 50, 2, offresH3);
+		Hotel hotel4 = new Hotel("France", "Paris", "Rue Saint Dominique", 15 , 75, 22, 52, 5, offresH4);
 		hotels.addAll(Arrays.asList(
 				hotel1,
 				hotel2,

@@ -24,17 +24,17 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ExceptionGetReference_QNAME = new QName("http://services.service.web.hotel/", "ExceptionGetReference");
-    private final static QName _ConsultationOffre_QNAME = new QName("http://client.service.web.agence/", "ConsultationOffre");
-    private final static QName _ConsultationOffreResponse_QNAME = new QName("http://client.service.web.agence/", "ConsultationOffreResponse");
     private final static QName _DatatypeConfigurationException_QNAME = new QName("http://client.service.web.agence/", "DatatypeConfigurationException");
-    private final static QName _ParseException_QNAME = new QName("http://client.service.web.agence/", "ParseException");
+    private final static QName _GetAgenceNamesResponse_QNAME = new QName("http://client.service.web.agence/", "getAgenceNamesResponse");
     private final static QName _Reservation_QNAME = new QName("http://client.service.web.agence/", "Reservation");
     private final static QName _ReservationResponse_QNAME = new QName("http://client.service.web.agence/", "ReservationResponse");
-    private final static QName _GetAgenceNames_QNAME = new QName("http://client.service.web.agence/", "getAgenceNames");
-    private final static QName _GetAgenceNamesResponse_QNAME = new QName("http://client.service.web.agence/", "getAgenceNamesResponse");
-    private final static QName _GetReferenceResa_QNAME = new QName("http://client.service.web.agence/", "getReferenceResa");
     private final static QName _GetReferenceResaResponse_QNAME = new QName("http://client.service.web.agence/", "getReferenceResaResponse");
+    private final static QName _GetAgenceNames_QNAME = new QName("http://client.service.web.agence/", "getAgenceNames");
+    private final static QName _ParseException_QNAME = new QName("http://client.service.web.agence/", "ParseException");
+    private final static QName _ExceptionGetReference_QNAME = new QName("http://services.service.web.hotel/", "ExceptionGetReference");
+    private final static QName _GetReferenceResa_QNAME = new QName("http://client.service.web.agence/", "getReferenceResa");
+    private final static QName _ConsultationOffre_QNAME = new QName("http://client.service.web.agence/", "ConsultationOffre");
+    private final static QName _ConsultationOffreResponse_QNAME = new QName("http://client.service.web.agence/", "ConsultationOffreResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: client.consumer.service
@@ -76,19 +76,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ConsultationOffre }
+     * Create an instance of {@link GetAgenceNamesResponse }
      * 
      */
-    public ConsultationOffre createConsultationOffre() {
-        return new ConsultationOffre();
-    }
-
-    /**
-     * Create an instance of {@link ConsultationOffreResponse }
-     * 
-     */
-    public ConsultationOffreResponse createConsultationOffreResponse() {
-        return new ConsultationOffreResponse();
+    public GetAgenceNamesResponse createGetAgenceNamesResponse() {
+        return new GetAgenceNamesResponse();
     }
 
     /**
@@ -97,14 +89,6 @@ public class ObjectFactory {
      */
     public DatatypeConfigurationException createDatatypeConfigurationException() {
         return new DatatypeConfigurationException();
-    }
-
-    /**
-     * Create an instance of {@link ParseException }
-     * 
-     */
-    public ParseException createParseException() {
-        return new ParseException();
     }
 
     /**
@@ -124,6 +108,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetReferenceResaResponse }
+     * 
+     */
+    public GetReferenceResaResponse createGetReferenceResaResponse() {
+        return new GetReferenceResaResponse();
+    }
+
+    /**
      * Create an instance of {@link GetAgenceNames }
      * 
      */
@@ -132,11 +124,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAgenceNamesResponse }
+     * Create an instance of {@link ParseException }
      * 
      */
-    public GetAgenceNamesResponse createGetAgenceNamesResponse() {
-        return new GetAgenceNamesResponse();
+    public ParseException createParseException() {
+        return new ParseException();
+    }
+
+    /**
+     * Create an instance of {@link ConsultationOffre }
+     * 
+     */
+    public ConsultationOffre createConsultationOffre() {
+        return new ConsultationOffre();
     }
 
     /**
@@ -148,59 +148,16 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetReferenceResaResponse }
+     * Create an instance of {@link ConsultationOffreResponse }
      * 
      */
-    public GetReferenceResaResponse createGetReferenceResaResponse() {
-        return new GetReferenceResaResponse();
+    public ConsultationOffreResponse createConsultationOffreResponse() {
+        return new ConsultationOffreResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ExceptionGetReference }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DatatypeConfigurationException }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ExceptionGetReference }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "ExceptionGetReference")
-    public JAXBElement<ExceptionGetReference> createExceptionGetReference(ExceptionGetReference value) {
-        return new JAXBElement<ExceptionGetReference>(_ExceptionGetReference_QNAME, ExceptionGetReference.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultationOffre }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConsultationOffre }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ConsultationOffre")
-    public JAXBElement<ConsultationOffre> createConsultationOffre(ConsultationOffre value) {
-        return new JAXBElement<ConsultationOffre>(_ConsultationOffre_QNAME, ConsultationOffre.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultationOffreResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ConsultationOffreResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ConsultationOffreResponse")
-    public JAXBElement<ConsultationOffreResponse> createConsultationOffreResponse(ConsultationOffreResponse value) {
-        return new JAXBElement<ConsultationOffreResponse>(_ConsultationOffreResponse_QNAME, ConsultationOffreResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DatatypeConfigurationException }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link DatatypeConfigurationException }{@code >}
      */
     @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "DatatypeConfigurationException")
     public JAXBElement<DatatypeConfigurationException> createDatatypeConfigurationException(DatatypeConfigurationException value) {
@@ -208,64 +165,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ParseException }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAgenceNamesResponse }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ParseException }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ParseException")
-    public JAXBElement<ParseException> createParseException(ParseException value) {
-        return new JAXBElement<ParseException>(_ParseException_QNAME, ParseException.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Reservation }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Reservation }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "Reservation")
-    public JAXBElement<Reservation> createReservation(Reservation value) {
-        return new JAXBElement<Reservation>(_Reservation_QNAME, Reservation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReservationResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link ReservationResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ReservationResponse")
-    public JAXBElement<ReservationResponse> createReservationResponse(ReservationResponse value) {
-        return new JAXBElement<ReservationResponse>(_ReservationResponse_QNAME, ReservationResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAgenceNames }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetAgenceNames }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getAgenceNames")
-    public JAXBElement<GetAgenceNames> createGetAgenceNames(GetAgenceNames value) {
-        return new JAXBElement<GetAgenceNames>(_GetAgenceNames_QNAME, GetAgenceNames.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAgenceNamesResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetAgenceNamesResponse }{@code >}
      */
     @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getAgenceNamesResponse")
     public JAXBElement<GetAgenceNamesResponse> createGetAgenceNamesResponse(GetAgenceNamesResponse value) {
@@ -273,12 +174,62 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResa }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Reservation }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetReferenceResa }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "Reservation")
+    public JAXBElement<Reservation> createReservation(Reservation value) {
+        return new JAXBElement<Reservation>(_Reservation_QNAME, Reservation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReservationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ReservationResponse")
+    public JAXBElement<ReservationResponse> createReservationResponse(ReservationResponse value) {
+        return new JAXBElement<ReservationResponse>(_ReservationResponse_QNAME, ReservationResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getReferenceResaResponse")
+    public JAXBElement<GetReferenceResaResponse> createGetReferenceResaResponse(GetReferenceResaResponse value) {
+        return new JAXBElement<GetReferenceResaResponse>(_GetReferenceResaResponse_QNAME, GetReferenceResaResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAgenceNames }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getAgenceNames")
+    public JAXBElement<GetAgenceNames> createGetAgenceNames(GetAgenceNames value) {
+        return new JAXBElement<GetAgenceNames>(_GetAgenceNames_QNAME, GetAgenceNames.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ParseException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ParseException")
+    public JAXBElement<ParseException> createParseException(ParseException value) {
+        return new JAXBElement<ParseException>(_ParseException_QNAME, ParseException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExceptionGetReference }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://services.service.web.hotel/", name = "ExceptionGetReference")
+    public JAXBElement<ExceptionGetReference> createExceptionGetReference(ExceptionGetReference value) {
+        return new JAXBElement<ExceptionGetReference>(_ExceptionGetReference_QNAME, ExceptionGetReference.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResa }{@code >}}
+     * 
      */
     @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getReferenceResa")
     public JAXBElement<GetReferenceResa> createGetReferenceResa(GetReferenceResa value) {
@@ -286,16 +237,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetReferenceResaResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultationOffre }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GetReferenceResaResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "getReferenceResaResponse")
-    public JAXBElement<GetReferenceResaResponse> createGetReferenceResaResponse(GetReferenceResaResponse value) {
-        return new JAXBElement<GetReferenceResaResponse>(_GetReferenceResaResponse_QNAME, GetReferenceResaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ConsultationOffre")
+    public JAXBElement<ConsultationOffre> createConsultationOffre(ConsultationOffre value) {
+        return new JAXBElement<ConsultationOffre>(_ConsultationOffre_QNAME, ConsultationOffre.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ConsultationOffreResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://client.service.web.agence/", name = "ConsultationOffreResponse")
+    public JAXBElement<ConsultationOffreResponse> createConsultationOffreResponse(ConsultationOffreResponse value) {
+        return new JAXBElement<ConsultationOffreResponse>(_ConsultationOffreResponse_QNAME, ConsultationOffreResponse.class, null, value);
     }
 
 }

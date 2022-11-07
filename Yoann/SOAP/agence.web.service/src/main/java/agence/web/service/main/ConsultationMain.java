@@ -25,6 +25,7 @@ public class ConsultationMain {
 		IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
 //		System.out.println(proxy.getHotelsService().get(1).getVille());
 		
+		proxy.getHotelsService().get(0).getAgencePartenaires();
 		
 		GregorianCalendar c = new GregorianCalendar();
 		c.setTime(df.parse("29-10-2022"));

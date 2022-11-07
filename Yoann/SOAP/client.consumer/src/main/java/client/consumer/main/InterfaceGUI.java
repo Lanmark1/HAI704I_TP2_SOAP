@@ -226,7 +226,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		contentPane.add(lblAgence);
 		
 		tgbltnHistorique = new JToggleButton("Historique de vos réservations");
-		tgbltnHistorique.setBounds(654, 169, 214, 51);
+		tgbltnHistorique.setBounds(654, 169, 300, 40);
 		tgbltnHistorique.addActionListener(this);
 		contentPane.add(tgbltnHistorique);
 		tgbltnHistorique.setVisible(false);
@@ -376,12 +376,17 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				XMLGregorianCalendar dateArriveeXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateArriveeGC);
 				XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
 				
+				float prix = proxy.reservation(agenceName, ip, identifiant, dateArriveeXMLGC, dateDepartXMLGC); 
 			
-				JOptionPane.showMessageDialog(null,"Vous venez de payer : " + proxy.reservation(agenceName, ip, identifiant, dateArriveeXMLGC, dateDepartXMLGC) + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+				if(prix < Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 2).toString())) {
+					JOptionPane.showMessageDialog(null,"Vous avez bénéficier d'une réduction grâce à votre agence ! Vous venez de payer : " + prix + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+				}
+				else {
+					JOptionPane.showMessageDialog(null,"Vous venez de payer : " + prix + ", votre identifiant de réservation est : " + proxy.getReferenceResa());
+				}
 				tgbltnHistorique.setVisible(true);
 
 				lstReservations.add(proxy.getReferenceResa());
-				System.out.println(lstReservations);
 				if(table.getSelectedRow() != -1) {
 		               
 		               model.removeRow(table.getSelectedRow());

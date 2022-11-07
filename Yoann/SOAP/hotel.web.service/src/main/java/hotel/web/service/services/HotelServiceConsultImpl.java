@@ -72,4 +72,5 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 		return lstHotels;
 	}
 
+	
 }
