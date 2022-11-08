@@ -1,21 +1,30 @@
 package hotelreservation;
 
+import java.time.LocalDate;
+
 public class Reservation {
 	private String nomClient = null;
 	private String prenomClient = null;
 	private Paiement infospaiement = null;
-	private Creneau creneau;
+	private LocalDate date;
 	
-	public Reservation() {
-		super();
-		this.setCreneau(new Creneau());
-	}
-	
-	public Reservation(String nomClient, String prenomClient, Paiement infospaiement, Creneau creneau) {
+	public Reservation(String nomClient, String prenomClient, Paiement infospaiement, LocalDate date) {
 		this.setNomClient(nomClient);
 		this.setPrenomClient(prenomClient);
 		this.setInfospaiement(infospaiement);
-		this.setCreneau(creneau);
+		this.setDate(date);
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
+	public Paiement getInfospaiement() {
+		return infospaiement;
 	}
 
 	public String getNomClient() {
@@ -38,11 +47,5 @@ public class Reservation {
 		this.infospaiement = infospaiement;
 	}
 
-	public Creneau getCreneau() {
-		return creneau;
-	}
 
-	public void setCreneau(Creneau creneau) {
-		this.creneau = creneau;
-	}
 }

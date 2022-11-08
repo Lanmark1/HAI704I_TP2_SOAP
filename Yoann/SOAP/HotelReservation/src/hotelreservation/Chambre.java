@@ -8,14 +8,14 @@ public class Chambre{
 		private int prix;
 		private int nbrlits;
 		private boolean libre;
-		private Reservation reservation;
+		private LocalDate dateDispo;
 		
 		public Chambre() {};
 		
-		public Chambre(int prix, int nbrlits,Reservation reservation) {
+		public Chambre(int prix, int nbrlits,LocalDate dateDispo) {
 			this.prix = prix;
 			this.nbrlits = nbrlits;
-			this.setReservation(reservation);
+			this.dateDispo = dateDispo;
 		}
 		
 		
@@ -40,17 +40,14 @@ public class Chambre{
 			this.libre = libre;
 		}
 
+		public LocalDate getDateDispo() {
+			return dateDispo;
+		}
+
+		public void setDateDispo(LocalDate dateDispo) {
+			this.dateDispo = dateDispo;
+		}
+
 		
-		public boolean est_libre (Creneau creneau2){
-			return getReservation().getCreneau().getsecondDate().isBefore(creneau2.getfirstDate()); 
-		}
-
-		public Reservation getReservation() {
-			return reservation;
-		}
-
-		public void setReservation(Reservation reservation) {
-			this.reservation = reservation;
-		}
 
 }
