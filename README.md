@@ -1,28 +1,30 @@
-# Web service SOAP
-
+# HAI704I TP2 - Web service SOAP
+TP réalisé par :
 - BENTOLILA Jeremie
 - REYNE Yoann
 
 ## Pré-requis
 
-- Java installé + Eclipse
+- Système unix (recommandé)
+- Java
+- Maven
 
 ## Installation
 
-- Récupérer une archive de notre Projet ( conseillé ) 
-- Se placer à la racine et exécuter les commandes suivantes dans deux terminaux de commandes :
+- Récupérer une archive de notre Projet (recommandé) 
+- Se placer à la racine et exécuter les commandes suivantes dans trois terminaux de commandes :
 
 ### Premier terminal
-
-Lancer le web service des hôtels
+Compiler les différents projets, lancer le web service des hôtels :
 
 ```bash
+make compile
 make pHotelWS
 ```
 
 ### Deuxième terminal
 
-Lancer le web service des agences
+Lancer le web service des agences :
 
 ```bash
 make pAgenceWS
@@ -30,15 +32,23 @@ make pAgenceWS
 
 ### Troisième terminal
 
-Lancer l'interface utilisateur
+Lancer l'interface client :
 
 ```bash
 make gui
 ```
-
+De manière générale, si vous avez un doute quant aux rôles des commandes :
+```makefile
+make help
+```
 ## Utilisation
 
 - Remplir les critères désirés
+
+- (Villes disponibles : )
+    - Paris
+    - Montpellier
+    - Nice
 - Consulter les offres répondant à ses critères
 - Effectuer une réservation parmi les offres obtenues
-- Possibilité d'avoir accès à l'historique des réservations
+- Accéder à l'historique des réservations
