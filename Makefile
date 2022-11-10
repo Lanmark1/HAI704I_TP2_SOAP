@@ -1,3 +1,11 @@
+help :
+	@echo "Les commandes :"
+	@echo "\t- compiler : make compile"
+	@echo "\t- faire les wsimport : \n\t\t- make importHotel\n\t\t- make importAgence"
+	@echo "\t- lancer les WS : \n\t\t- make pHotelWS\n\t\t- make pAgenceWS"
+	@echo "\t- lancer le client : make gui"
+	@echo "\t- afficher cette page d'aide: make help (option par défaut)"
+
 compile :
 	(cd hotel.web.service ; mvn compile)
 	(cd agence.web.service ; mvn compile)
@@ -33,3 +41,4 @@ cli : # utilisation du WS de l'agence par le client
 
 gui : # utilisation du WS de l'agence par le client (GUI)
 	(cd client.consumer ; mvn exec:java@InterfaceGUI)
+	
