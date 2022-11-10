@@ -36,13 +36,13 @@ public class InfosPersonnes {
     protected String nom;
     protected Paiement paiement;
 
-	public InfosPersonnes(){}
-
+    public InfosPersonnes() {
+    	
+    }
+    
     public InfosPersonnes(String string, Paiement p1) {
-	
-		this.nom = string;
-		this.paiement = p1;
-
+		nom = string;
+		paiement = p1;
 	}
 
 	/**

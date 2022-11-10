@@ -79,7 +79,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 	
 	
 	
-	String header[] = new String[] {"Lieu", "Identifiant", "Prix", "Etoiles"};
+	String header[] = new String[] {"Lieu", "Nombre de lits", "Prix", "Etoiles", "Identifiant"};
 	int row, col;
 	private JTable table;
 	private JTextField prixMaximum_1;
@@ -224,12 +224,12 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		
 		
 		lblChambre = new JLabel("Image de la chambre :");
-		lblChambre.setBounds(654, 160, 144, 15);
+		lblChambre.setBounds(350, 160, 200, 15);
 		contentPane.add(lblChambre);
 		lblChambre.setVisible(false);
 		
 		imageChambre = new JLabel();
-		imageChambre.setBounds(654, 180, 120, 120);
+		imageChambre.setBounds(350, 180, 120, 120);
 		imageChambre.setSize(120, 120);
 		contentPane.add(imageChambre);
 		imageChambre.setVisible(false);
@@ -256,7 +256,6 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		if(lstReservations.size()>0) {
 			tgbltnHistorique.setVisible(true);
 		}
-		
 	
 	}
 
@@ -304,9 +303,12 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					XMLGregorianCalendar dateDepartXMLGC = DatatypeFactory.newInstance().newXMLGregorianCalendar(dateDepartGC);
 					lstOffres = (ArrayList<Offre>) proxy.consultationOffre(agenceName,prix,nomVille.getText(),etoiles,dateArriveeXMLGC, dateDepartXMLGC,lits);
 					
+					
+					
 					for (Offre o : lstOffres) {
+						System.out.println(o.getHotel());
 						model.addRow(new Object[]
-								{ nomVille.getText(), o.getIdentifiant(), o.getPrix(),3});
+								{ nomVille.getText(), o.getNbrLits(), o.getPrix(),o.getHotel().getEtoiles(), o.getIdentifiant()});
 						}
 					
 					table.addMouseListener(new MouseListener() {
@@ -318,7 +320,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 							BufferedImage imgCh = null;
 							
 							try {
-								imgCh = ImageIO.read(new URL("file:./src/main/java/client/consumer/main/room1.jpg"));
+								imgCh = ImageIO.read(new URL("file:./src/main/java/client/consumer/main/room"+String.valueOf(lstOffres.get(table.getSelectedRow()).getIdentifiant()%6)+".jpg"));
 							} catch (MalformedURLException e1) {
 								e1.printStackTrace();
 							} catch (IOException e1) {
@@ -354,11 +356,6 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 						}
 						
 					});
-						
-				
-//					for (Object o : model.) {
-//						
-//					}
 						
 				if(!lstOffres.isEmpty()) {
 					tglbtnReservez.setVisible(true);
@@ -400,7 +397,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		if(command.equals("Réserver")) {
 			if(!table.getSelectionModel().isSelectionEmpty()) {
 			
-			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 1).toString());
+			int identifiant = Integer.parseInt(table.getModel().getValueAt(table.getSelectedRow(), 4).toString());
 			String agenceName = String.valueOf(comboBoxAgences.getSelectedItem()).trim();
 			
 			JTextField nom = new JTextField();
@@ -462,7 +459,6 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		             
 		        }
 			} catch (DatatypeConfigurationException | DatatypeConfigurationException_Exception | ExceptionGetReferenceException | ParseException_Exception e2) {
-				// TODO Auto-generated catch block
 				e2.printStackTrace();
 			}
 		}

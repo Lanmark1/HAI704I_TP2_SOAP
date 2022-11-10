@@ -47,9 +47,9 @@ public class AgencePublisher {
 	
 		ArrayList<Agence> lstAgence = new ArrayList<>();
 		
-		System.out.println(nomAgence1.getHotelpartenaires());
-		System.out.println(nomAgence2.getHotelpartenaires());
-		System.out.println(nomAgence3.getHotelpartenaires());
+//		System.out.println(nomAgence1.getHotelpartenaires());
+//		System.out.println(nomAgence2.getHotelpartenaires());
+//		System.out.println(nomAgence3.getHotelpartenaires());
 
 		lstAgence.add(nomAgence1);
 		lstAgence.add(nomAgence2);

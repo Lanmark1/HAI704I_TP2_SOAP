@@ -36,9 +36,9 @@ public interface IAgenceServiceUtilisateur {
      * @param arg0
      * @return
      *     returns float
+     * @throws ExceptionGetReferenceException
      * @throws ParseException_Exception
      * @throws DatatypeConfigurationException_Exception
-     * @throws ExceptionGetReferenceException
      */
     @WebMethod(operationName = "Reservation")
     @WebResult(targetNamespace = "")

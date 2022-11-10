@@ -87,6 +87,8 @@ public class Offre {
 //		
 //	}
 	
-	
+	public int getEtoiles() {
+		return hotel.getEtoiles();
+	}
 	
 }

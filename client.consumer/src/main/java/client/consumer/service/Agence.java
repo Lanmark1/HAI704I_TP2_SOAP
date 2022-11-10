@@ -1,11 +1,11 @@
 
-package agence.web.consultationWS;
+package client.consumer.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="motdepasse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="hotelpartenaires" type="{http://services.service.web.hotel/}hotel" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "agence", propOrder = {
+@XmlType(name = "agence", namespace = "http://services.service.web.hotel/", propOrder = {
     "identifiant",
     "login",
     "motdepasse",
@@ -42,22 +43,16 @@ public class Agence {
     protected int identifiant;
     protected String login;
     protected String motdepasse;
-	private List<Hotel> hotelpartenaires;
-	
-	public Agence() {}
+    @XmlElement(nillable = true)
+    protected List<Hotel> hotelpartenaires;
+
+    public Agence() {}
     
     public Agence(int i, String login, String mdp, ArrayList<Hotel> hotelsPAgence2) {
     	identifiant = i;
     	this.login = login;
     	motdepasse = mdp;
     	hotelpartenaires = hotelsPAgence2;
-    }
-    
-    public List<Hotel> getHotelpartenaires() {
-        if (hotelpartenaires == null) {
-            hotelpartenaires = new ArrayList<Hotel>();
-        }
-        return this.hotelpartenaires;
     }
     
     /**
@@ -122,6 +117,35 @@ public class Agence {
      */
     public void setMotdepasse(String value) {
         this.motdepasse = value;
+    }
+
+    /**
+     * Gets the value of the hotelpartenaires property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the hotelpartenaires property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getHotelpartenaires().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Hotel }
+     * 
+     * 
+     */
+    public List<Hotel> getHotelpartenaires() {
+        if (hotelpartenaires == null) {
+            hotelpartenaires = new ArrayList<Hotel>();
+        }
+        return this.hotelpartenaires;
     }
 
 }

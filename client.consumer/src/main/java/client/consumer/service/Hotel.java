@@ -1,12 +1,13 @@
 
-package agence.web.consultationWS;
+package client.consumer.service;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
 
 
 /**
@@ -38,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "hotel", propOrder = {
+@XmlType(name = "hotel", namespace = "http://services.service.web.hotel/", propOrder = {
     "agencePartenaires",
     "etoiles",
     "latitude",
@@ -65,6 +66,27 @@ public class Hotel {
     protected String rue;
     protected String ville;
 
+    
+    public Hotel() {}
+	
+	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres) {
+		this.pays = pays;
+		this.ville = ville;
+		this.rue = rue;
+		this.numero = numero;
+		this.lieudit = lieudit;
+		this.longitude = longitude;
+		this.latitude = latitude;
+		this.etoiles = etoiles;
+//		for (Offre o : listeChambres) {
+////			System.out.println(o);
+////			o.setHotel(this);
+//		}
+		
+		this.listeChambres = listeChambres;
+		this.agencePartenaires = new ArrayList<Agence>();
+		
+	}
     /**
      * Gets the value of the agencePartenaires property.
      * 

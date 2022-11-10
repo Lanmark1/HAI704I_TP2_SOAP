@@ -20,7 +20,7 @@ public class HotelPublisher {
 		
 		ArrayList<Hotel> hotels = getHotels();
 		
-		System.out.println(hotels.get(0).getListeChambres());
+//		System.out.println(hotels.get(0).getListeChambres());
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 		
 		Endpoint.publish("http://localhost:8080/hotelserviceconsult", new HotelServiceConsultImpl(hotels));

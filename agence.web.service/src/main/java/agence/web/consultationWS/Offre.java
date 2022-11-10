@@ -1,11 +1,8 @@
 
 package agence.web.consultationWS;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -22,7 +19,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="dateDispo" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *         &lt;element name="hotel" type="{http://services.service.web.hotel/}hotel" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="hotel" type="{http://services.service.web.hotel/}hotel" minOccurs="0"/>
  *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="identifiantOffre" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="nbrLits" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -48,8 +45,7 @@ public class Offre {
 
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dateDispo;
-    @XmlElement(nillable = true)
-    protected List<Hotel> hotel;
+    protected Hotel hotel;
     protected int identifiant;
     protected int identifiantOffre;
     protected int nbrLits;
@@ -80,32 +76,27 @@ public class Offre {
     }
 
     /**
-     * Gets the value of the hotel property.
+     * Obtient la valeur de la propriété hotel.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the hotel property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getHotel().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Hotel }
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link Hotel }
+     *     
      */
-    public List<Hotel> getHotel() {
-        if (hotel == null) {
-            hotel = new ArrayList<Hotel>();
-        }
-        return this.hotel;
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    /**
+     * Définit la valeur de la propriété hotel.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Hotel }
+     *     
+     */
+    public void setHotel(Hotel value) {
+        this.hotel = value;
     }
 
     /**

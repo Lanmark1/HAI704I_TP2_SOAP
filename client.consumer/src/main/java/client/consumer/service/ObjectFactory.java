@@ -52,6 +52,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Agence }
+     * 
+     */
+    public Agence createAgence() {
+        return new Agence();
+    }
+
+    /**
      * Create an instance of {@link InfosPersonnes }
      * 
      */
@@ -65,6 +73,14 @@ public class ObjectFactory {
      */
     public Paiement createPaiement() {
         return new Paiement();
+    }
+
+    /**
+     * Create an instance of {@link Hotel }
+     * 
+     */
+    public Hotel createHotel() {
+        return new Hotel();
     }
 
     /**

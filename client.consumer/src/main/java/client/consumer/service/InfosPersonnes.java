@@ -35,15 +35,16 @@ public class InfosPersonnes {
 
     protected String nom;
     protected Paiement paiement;
-
-    public InfosPersonnes() {}
     
-    public InfosPersonnes(String trim, Paiement paiement2) {
-    	this.nom = trim;
-    	this.paiement = paiement2;
+    public InfosPersonnes() {
+    	
+    }
+    public InfosPersonnes(String nom, Paiement paiement) {
+    	this.nom = nom;
+    	this.paiement = paiement;
     }
 
-	/**
+    /**
      * Obtient la valeur de la propriété nom.
      * 
      * @return
