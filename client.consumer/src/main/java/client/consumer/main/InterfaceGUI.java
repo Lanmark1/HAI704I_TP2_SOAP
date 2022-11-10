@@ -179,7 +179,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 		nomVille.setColumns(10);
 		                                  
 		
-		tglbtnReservez = new JToggleButton("Reserver");
+		tglbtnReservez = new JToggleButton("Réserver");
 		tglbtnReservez.addActionListener(this);
 		tglbtnReservez.setBounds(150, 182, 123, 25);
 		contentPane.add(tglbtnReservez);
