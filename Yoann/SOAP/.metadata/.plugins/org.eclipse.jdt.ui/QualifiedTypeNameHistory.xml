@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="hotel.web.service.services.HotelServiceConsultImpl"/>
+    <fullyQualifiedTypeName name="agence.web.service.client.AgenceServiceUtilisateurImpl"/>
+    <fullyQualifiedTypeName name="org.json.JSONArray"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
+    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+    <fullyQualifiedTypeName name="hotel.web.service.model.bdd.Agence"/>
+    <fullyQualifiedTypeName name="hotel.web.service.model.bdd.Offre"/>
+    <fullyQualifiedTypeName name="javax.swing.text.html.HTMLEditorKit.Parser"/>
+    <fullyQualifiedTypeName name="java.net.URL"/>
+    <fullyQualifiedTypeName name="client.consumer.service.IAgenceServiceUtilisateur"/>
+    <fullyQualifiedTypeName name="client.consumer.service.AgenceServiceUtilisateurImplService"/>
+    <fullyQualifiedTypeName name="client.consumer.service.InfosPersonnes"/>
+    <fullyQualifiedTypeName name="client.consumer.service.Paiement"/>
+    <fullyQualifiedTypeName name="client.consumer.service.Reservation"/>
+    <fullyQualifiedTypeName name="hotelreservation.Reservation"/>
+</qualifiedTypeNameHistroy>

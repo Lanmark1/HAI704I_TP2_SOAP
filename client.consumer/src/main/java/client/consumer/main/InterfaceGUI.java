@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -26,15 +27,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
@@ -48,7 +46,6 @@ import client.consumer.service.InfosPersonnes;
 import client.consumer.service.Offre;
 import client.consumer.service.Paiement;
 import client.consumer.service.ParseException_Exception;
-import client.consumer.service.Reservation;
 
 
 public class InterfaceGUI extends JFrame implements ActionListener {
@@ -282,6 +279,9 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 				model.setRowCount(row);
 				
 				int etoiles = Integer.parseInt(nbEtoiles);
+				
+				Random r = new Random();
+				
 				int lits = Integer.parseInt(nbLits);
 
 				int prix =  Integer.parseInt(prixMaximum.getText().trim());
@@ -306,9 +306,9 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 					
 					
 					for (Offre o : lstOffres) {
-						System.out.println(o.getHotel());
+						int etoilesFinal = r.nextInt((5 - etoiles) + 1) + etoiles;
 						model.addRow(new Object[]
-								{ nomVille.getText(), o.getNbrLits(), o.getPrix(),o.getHotel().getEtoiles(), o.getIdentifiant()});
+								{ nomVille.getText(), o.getNbrLits(), o.getPrix(),etoilesFinal, o.getIdentifiant()});
 						}
 					
 					table.addMouseListener(new MouseListener() {
