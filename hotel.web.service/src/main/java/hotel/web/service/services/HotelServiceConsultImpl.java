@@ -1,7 +1,9 @@
 package hotel.web.service.services;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Date;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -20,6 +22,12 @@ public class HotelServiceConsultImpl implements IHotelServiceConsult {
 		this.lstHotels = hotels; 
 		lstOffre = new ArrayList<Offre>();	
 	}	
+	
+	@WebMethod
+	public String getImageURL(Offre o) {
+		return "../hotel.web.service/images/room"+o.getChambreImageNum()+".jpg";
+	}
+	
 	
 	@WebMethod
 	public ArrayList<Offre> getListeOffres(int identifiant, String password, String ville, float prix, Date DateDebut, Date DateFin, int nbrPersonnes, int nbrEtoiles) {	

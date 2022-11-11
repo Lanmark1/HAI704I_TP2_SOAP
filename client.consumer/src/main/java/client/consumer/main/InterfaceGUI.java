@@ -320,7 +320,7 @@ public class InterfaceGUI extends JFrame implements ActionListener {
 							BufferedImage imgCh = null;
 							
 							try {
-								imgCh = ImageIO.read(new URL("file:./src/main/java/client/consumer/main/room"+String.valueOf(lstOffres.get(table.getSelectedRow()).getIdentifiant()%6)+".jpg"));
+								imgCh = ImageIO.read(new URL("file:"+proxy.getImageURL(lstOffres.get(table.getSelectedRow()))));
 							} catch (MalformedURLException e1) {
 								e1.printStackTrace();
 							} catch (IOException e1) {

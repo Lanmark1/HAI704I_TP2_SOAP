@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour DatatypeConfigurationException complex type.
+ * <p>Classe Java pour getImageURL complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="DatatypeConfigurationException"&gt;
+ * &lt;complexType name="getImageURL"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="arg0" type="{http://services.service.web.hotel/}offre" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DatatypeConfigurationException", propOrder = {
-    "message"
+@XmlType(name = "getImageURL", propOrder = {
+    "arg0"
 })
-public class DatatypeConfigurationException {
+public class GetImageURL {
 
-    protected String message;
+    protected Offre arg0;
 
     /**
-     * Obtient la valeur de la propriété message.
+     * Obtient la valeur de la propriété arg0.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Offre }
      *     
      */
-    public String getMessage() {
-        return message;
+    public Offre getArg0() {
+        return arg0;
     }
 
     /**
-     * Définit la valeur de la propriété message.
+     * Définit la valeur de la propriété arg0.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Offre }
      *     
      */
-    public void setMessage(String value) {
-        this.message = value;
+    public void setArg0(Offre value) {
+        this.arg0 = value;
     }
 
 }

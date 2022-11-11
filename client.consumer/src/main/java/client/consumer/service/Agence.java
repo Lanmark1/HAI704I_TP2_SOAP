@@ -15,18 +15,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="agence">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="motdepasse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="hotelpartenaires" type="{http://services.service.web.hotel/}hotel" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="agence"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="motdepasse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="hotelsPartenaires" type="{http://services.service.web.hotel/}hotel" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlType;
     "identifiant",
     "login",
     "motdepasse",
-    "hotelpartenaires"
+    "hotelsPartenaires"
 })
 public class Agence {
 
@@ -44,17 +44,8 @@ public class Agence {
     protected String login;
     protected String motdepasse;
     @XmlElement(nillable = true)
-    protected List<Hotel> hotelpartenaires;
+    protected List<Hotel> hotelsPartenaires;
 
-    public Agence() {}
-    
-    public Agence(int i, String login, String mdp, ArrayList<Hotel> hotelsPAgence2) {
-    	identifiant = i;
-    	this.login = login;
-    	motdepasse = mdp;
-    	hotelpartenaires = hotelsPAgence2;
-    }
-    
     /**
      * Obtient la valeur de la propriété identifiant.
      * 
@@ -120,18 +111,18 @@ public class Agence {
     }
 
     /**
-     * Gets the value of the hotelpartenaires property.
+     * Gets the value of the hotelsPartenaires property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the hotelpartenaires property.
+     * This is why there is not a <CODE>set</CODE> method for the hotelsPartenaires property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getHotelpartenaires().add(newItem);
+     *    getHotelsPartenaires().add(newItem);
      * </pre>
      * 
      * 
@@ -141,11 +132,11 @@ public class Agence {
      * 
      * 
      */
-    public List<Hotel> getHotelpartenaires() {
-        if (hotelpartenaires == null) {
-            hotelpartenaires = new ArrayList<Hotel>();
+    public List<Hotel> getHotelsPartenaires() {
+        if (hotelsPartenaires == null) {
+            hotelsPartenaires = new ArrayList<Hotel>();
         }
-        return this.hotelpartenaires;
+        return this.hotelsPartenaires;
     }
 
 }

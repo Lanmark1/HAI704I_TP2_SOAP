@@ -1,5 +1,7 @@
 package agence.web.service.client;
 
+import java.net.MalformedURLException; 
+import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +17,9 @@ import agence.web.reservationWS.InfosPersonnes;
 @WebService
 public interface IAgenceServiceUtilisateur {
 
+	@WebMethod
+	public String getImageURL(Offre o);
+	
 	@WebMethod
 	public float Reservation(String agence, InfosPersonnes infos, int identifiant, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception;
 	

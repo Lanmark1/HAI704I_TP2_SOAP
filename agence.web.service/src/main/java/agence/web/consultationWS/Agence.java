@@ -2,7 +2,6 @@
 package agence.web.consultationWS;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,17 +14,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="agence">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="motdepasse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="agence"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="identifiant" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="motdepasse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -35,30 +34,26 @@ import javax.xml.bind.annotation.XmlType;
     "identifiant",
     "login",
     "motdepasse",
-    "hotelpartenaires"
+    "hotelsPartenaires"
 })
 public class Agence {
 
     protected int identifiant;
     protected String login;
     protected String motdepasse;
-	private List<Hotel> hotelpartenaires;
-	
-	public Agence() {}
-    
-    public Agence(int i, String login, String mdp, ArrayList<Hotel> hotelsPAgence2) {
-    	identifiant = i;
-    	this.login = login;
-    	motdepasse = mdp;
-    	hotelpartenaires = hotelsPAgence2;
+
+    protected ArrayList<Hotel> hotelsPartenaires; 
+
+    public Agence() {
+    	
     }
     
-    public List<Hotel> getHotelpartenaires() {
-        if (hotelpartenaires == null) {
-            hotelpartenaires = new ArrayList<Hotel>();
-        }
-        return this.hotelpartenaires;
-    }
+    public Agence(int i, String string, String string2, ArrayList<Hotel> hotelsPAgence1) {
+		identifiant = i;
+		login = string;
+		motdepasse = string2;
+		hotelsPartenaires = hotelsPAgence1;
+	}
     
     /**
      * Obtient la valeur de la propriété identifiant.

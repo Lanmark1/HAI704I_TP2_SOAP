@@ -1,7 +1,7 @@
 package hotel.web.service.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 
 public class Offre {
@@ -12,17 +12,27 @@ public class Offre {
 	private int prix;
 //	private ArrayList<Hotel> hotel;
 	private Hotel hotel;
+	private int chambreImageNum;
 	
 	
 	public Offre() {}
 	
-	public Offre(int nbrLits, Date dateDispo, int prix) {
+	public Offre(int nbrLits, Date dateDispo, int prix, int chambreImageNum) {
 		identifiant++;
 		setIdentifiant(identifiant);
 		setNbrLits(nbrLits);
 		setDateDispo(dateDispo);
 		setPrix(prix);
+		setChambreImageNum(chambreImageNum);
 		hotel = new Hotel();
+	}
+
+	public int getChambreImageNum() {
+		return chambreImageNum;
+	}
+
+	public void setChambreImageNum(int chambreImageNum) {
+		this.chambreImageNum = chambreImageNum;
 	}
 
 	public int getIdentifiant() {
@@ -87,8 +97,8 @@ public class Offre {
 //		
 //	}
 	
-	public int getEtoiles() {
-		return hotel.getEtoiles();
-	}
+//	public int getEtoiles() {
+//		return hotel.getEtoiles();
+//	}
 	
 }

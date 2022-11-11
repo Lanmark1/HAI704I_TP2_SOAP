@@ -1,13 +1,12 @@
 
 package client.consumer.service;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-
 
 
 /**
@@ -16,24 +15,24 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="hotel">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="agencePartenaires" type="{http://services.service.web.hotel/}agence" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="etoiles" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="latitude" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="lieudit" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="listeChambres" type="{http://services.service.web.hotel/}offre" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="longitude" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="rue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="ville" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="hotel"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="agencePartenaires" type="{http://services.service.web.hotel/}agence" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="etoiles" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="latitude" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="lieudit" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="listeChambres" type="{http://services.service.web.hotel/}offre" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="longitude" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="rue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="ville" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -66,27 +65,6 @@ public class Hotel {
     protected String rue;
     protected String ville;
 
-    
-    public Hotel() {}
-	
-	public Hotel(String pays, String ville, String rue, int numero, int lieudit, int longitude, int latitude, int etoiles, ArrayList<Offre> listeChambres) {
-		this.pays = pays;
-		this.ville = ville;
-		this.rue = rue;
-		this.numero = numero;
-		this.lieudit = lieudit;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.etoiles = etoiles;
-//		for (Offre o : listeChambres) {
-////			System.out.println(o);
-////			o.setHotel(this);
-//		}
-		
-		this.listeChambres = listeChambres;
-		this.agencePartenaires = new ArrayList<Agence>();
-		
-	}
     /**
      * Gets the value of the agencePartenaires property.
      * 

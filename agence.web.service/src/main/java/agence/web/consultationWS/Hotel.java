@@ -15,24 +15,24 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="hotel">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="agencePartenaires" type="{http://services.service.web.hotel/}agence" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="etoiles" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="latitude" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="lieudit" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="listeChambres" type="{http://services.service.web.hotel/}offre" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="longitude" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="rue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="ville" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="hotel"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="agencePartenaires" type="{http://services.service.web.hotel/}agence" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="etoiles" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="latitude" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="lieudit" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="listeChambres" type="{http://services.service.web.hotel/}offre" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="longitude" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="numero" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="pays" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="rue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="ville" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

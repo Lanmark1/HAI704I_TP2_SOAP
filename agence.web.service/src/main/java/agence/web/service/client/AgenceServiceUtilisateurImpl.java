@@ -1,6 +1,6 @@
 package agence.web.service.client;
 
-import java.net.MalformedURLException;
+import java.net.MalformedURLException; 
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -31,6 +31,8 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	public AgenceServiceUtilisateurImpl(ArrayList<Agence> agences) {
 		this.lstAgences = agences;
 	}
+	
+	
 	
 	@Override
 	public float Reservation(String nameAgence, InfosPersonnes infos, int identifiantOffre, Date dateDebut, Date dateFin) throws ParseException, DatatypeConfigurationException, ExceptionGetReference_Exception {
@@ -113,5 +115,21 @@ public class AgenceServiceUtilisateurImpl implements IAgenceServiceUtilisateur{
 	@Override
 	public int getReferenceResa() {
 		return resID;
+	}
+
+
+
+	@Override
+	public String getImageURL(Offre o) {
+		URL url;
+		try {
+			url = new URL("http://localhost:8080/hotelserviceconsult?wsdl");
+			HotelServiceConsultImplService consultImpl = new HotelServiceConsultImplService(url);
+			IHotelServiceConsult proxy = consultImpl.getHotelServiceConsultImplPort();
+			return proxy.getImageURL(o);
+		} catch (MalformedURLException e) {			
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

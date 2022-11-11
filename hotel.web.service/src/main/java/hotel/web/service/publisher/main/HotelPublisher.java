@@ -57,26 +57,26 @@ public class HotelPublisher {
 		
 		// Définitions des offres/chambres
 		
-		Offre of1h1 = new Offre(3, df.parse("10-10-2022"), 100 );
-		Offre of2h1 = new Offre(2, df.parse("12-10-2022"), 80 );
-		Offre of3h1 = new Offre(5, df.parse("07-10-2022"), 180 );
-		Offre of4h1 = new Offre(8, df.parse("13-10-2022"), 250 );
+		Offre of1h1 = new Offre(3, df.parse("10-10-2022"), 100 , 0);
+		Offre of2h1 = new Offre(2, df.parse("12-10-2022"), 80 , 1);
+		Offre of3h1 = new Offre(5, df.parse("07-10-2022"), 180 , 2);
+		Offre of4h1 = new Offre(8, df.parse("13-10-2022"), 250 , 3);
 		
-		Offre of1h2 = new Offre(4, df.parse("10-10-2022"), 110 );
-		Offre of2h2 = new Offre(6, df.parse("05-10-2022"), 160 );
-		Offre of3h2 = new Offre(1, df.parse("13-10-2022"), 50 );
-		Offre of4h2 = new Offre(7, df.parse("04-10-2022"), 210 );
+		Offre of1h2 = new Offre(4, df.parse("10-10-2022"), 110, 4);
+		Offre of2h2 = new Offre(6, df.parse("05-10-2022"), 160, 5);
+		Offre of3h2 = new Offre(1, df.parse("13-10-2022"), 50, 3);
+		Offre of4h2 = new Offre(7, df.parse("04-10-2022"), 210, 4);
 		
-		Offre of1h3 = new Offre(4, df.parse("10-10-2022"), 110 );
-		Offre of2h3 = new Offre(6, df.parse("05-10-2022"), 160 );
-		Offre of3h3 = new Offre(1, df.parse("13-10-2022"), 50 );
-		Offre of4h3 = new Offre(7, df.parse("04-10-2022"), 210 );
+		Offre of1h3 = new Offre(4, df.parse("10-10-2022"), 110, 2);
+		Offre of2h3 = new Offre(6, df.parse("05-10-2022"), 160, 0);
+		Offre of3h3 = new Offre(1, df.parse("13-10-2022"), 50 , 1);
+		Offre of4h3 = new Offre(7, df.parse("04-10-2022"), 210, 1);
 		
 		
-		Offre of1h4 = new Offre(4, df.parse("10-10-2022"), 110 );
-		Offre of2h4 = new Offre(6, df.parse("05-10-2022"), 160 );
-		Offre of3h4 = new Offre(1, df.parse("13-10-2022"), 50 );
-		Offre of4h4 = new Offre(7, df.parse("04-10-2022"), 210 );
+		Offre of1h4 = new Offre(4, df.parse("10-10-2022"), 110, 2);
+		Offre of2h4 = new Offre(6, df.parse("05-10-2022"), 160, 3);
+		Offre of3h4 = new Offre(1, df.parse("13-10-2022"), 50 , 5);
+		Offre of4h4 = new Offre(7, df.parse("04-10-2022"), 210, 0);
 
 		offresH1.addAll(Arrays.asList(
 				of1h1,

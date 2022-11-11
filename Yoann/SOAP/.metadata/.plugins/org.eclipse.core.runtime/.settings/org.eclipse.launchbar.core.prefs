@@ -1,7 +1,0 @@
-LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
-LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
-LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:agence.web.service,org.eclipse.launchbar.core.descriptorType.default\:AgenceMain,org.eclipse.launchbar.core.descriptorType.default\:ConsultationMain,org.eclipse.launchbar.core.descriptorType.default\:Main (1),org.eclipse.launchbar.core.descriptorType.default\:Main,org.eclipse.launchbar.core.descriptorType.default\:ReservationMain,org.eclipse.launchbar.core.descriptorType.default\:ClientMain,org.eclipse.launchbar.core.descriptorType.default\:HotelPublisher,org.eclipse.launchbar.core.descriptorType.default\:AgencePublisher,org.eclipse.launchbar.core.descriptorType.default\:InterfaceGUI,org.eclipse.launchbar.core.descriptorType.default\:Main (2)
-eclipse.preferences.version=1
-org.eclipse.launchbar.core.descriptorType.default\:agence.web.service/activeLaunchMode=run
-org.eclipse.launchbar.core.descriptorType.default\:agence.web.service/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

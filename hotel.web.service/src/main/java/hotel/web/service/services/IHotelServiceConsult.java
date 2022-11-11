@@ -1,5 +1,7 @@
 package hotel.web.service.services;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,6 +14,9 @@ import hotel.web.service.model.Offre;
 
 @WebService
 public interface IHotelServiceConsult {
+	
+	@WebMethod
+	public String getImageURL(Offre o);
 	
 	@WebMethod
 	public ArrayList<Hotel> getHotelsService();
