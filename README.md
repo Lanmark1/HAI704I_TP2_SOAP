@@ -6,8 +6,9 @@ TP réalisé par :
 ## Pré-requis
 
 - Système unix (recommandé)
-- Java
+- Make
 - Maven
+- Java JRE
 
 ## Installation
 
